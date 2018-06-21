@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ff7403</color>
+    <color name="colorPrimaryDark">#ff7403</color>
+    <color name="colorAccent">#ff7403</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorError">#FFCF1013</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorDarkGray">#686868</color>
+    <color name="colorDarkX">#999999</color>
+    <color name="colorLightGray">#c4c4c4</color>
+    <color name="colorLightGrayXX">#dddddd</color>
+    <color name="colorLightGrayXXX">#f3f3f3</color>
+    <color name="chat_time_color">#B1B2B1</color>
+    <color name="colorLightBlack">#262626</color>
+    <color name="colorRed">#FF1D20</color>
+    <color name="colorBlue">#1c8ccc</color>
+    <color name="colorLightGrayX">#F5F5F5</color>
+    <color name="trans_success_stroke_color">#33A5DC86</color>
+    <color name="menu_item_1">#1677A1</color>
+    <color name="banana">#FFCC00</color>
+    <color name="colorLightYellow">#FFFFE0</color>
+    <color name="color_Tab_unselected">#CCFFFFFF</color>
+    <color name="colorE">#c4c4c4</color>
+    <color name="colorGreen">#22c064</color>
+
+    <color name="transparent">#00000000</color>
+</resources>

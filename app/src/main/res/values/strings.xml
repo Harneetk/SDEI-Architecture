@@ -1,0 +1,43 @@
+<resources>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+
+
+    <!-- Splash Screen String-->
+    <string name="loading">Loading...</string>
+
+
+    <string name="app_name">Basic app</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password"><u>Forgot Password?</u></string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up"><u>&#160;Sign Up</u></string>
+
+
+    <!-- Forgot password Strings -->
+
+    <string name="forgot_password_text">Use the email address that\'s associated with your application account.</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="title_forgot_password">Forgot Password</string>
+
+    <!-- Register Strings -->
+    <string name="register">Register</string>
+    <string name="verify_password">Verify Password</string>
+    <string name="registration">Registration</string>
+    <string name="last_name">Last name</string>
+    <string name="first_name">First name</string>
+    <string name="please_enter_first_name">Please enter First name.</string>
+    <string name="please_enter_last_name">Please enter Last name.</string>
+    <string name="please_enter_email">Please enter Email.</string>
+    <string name="please_enter_password">Please enter Password.</string>
+    <string name="password_not_match">Password does not match</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+
+
+</resources>
