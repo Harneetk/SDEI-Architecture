@@ -22,7 +22,8 @@ import kotlin.coroutines.experimental.coroutineContext
 /**
  * Created by parmil.sharma on 14/02/18.
  */
-class LoginViewModel : ViewModel() {
+class LoginViewModel : ViewModel()
+{
     var isLoading = MutableLiveData<Boolean>()
     var apiError = MutableLiveData<String>()
     var apiResponse = MutableLiveData<Any>()
@@ -34,11 +35,11 @@ class LoginViewModel : ViewModel() {
     init {
 
 
-       email.set("");
-       password.set("");
+       email.set("gs@g.com");
+       password.set("12345678");
 
-       emailError.set("gs@g.com")
-       passwordError.set("12345678")
+       emailError.set("")
+       passwordError.set("")
     }
 
     fun onLoginClick(view: View) {
@@ -76,8 +77,7 @@ class LoginViewModel : ViewModel() {
 
 
 
+    }
 
 
 
-
-}

@@ -102,14 +102,11 @@ class LoginActivity : AppCompatActivity()
 
                         PreferenceConnector.writeString(this, PreferenceConnector.ACCESS_TOKEN, it.access_token)
                         var token= PreferenceConnector.readString(this@LoginActivity,PreferenceConnector.ACCESS_TOKEN,"")
-                        viewModel.getCurrentUser("Bearer "+ token ?: "")
                     }
 
                    else {
                        Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
-
-
-                    }
+                   }
                 }
 
             }

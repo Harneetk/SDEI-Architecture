@@ -16,23 +16,25 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
-       setSupportActionBar(toolbar)
-
-
-
-       val toggle = ActionBarDrawerToggle(
+        setSupportActionBar(toolbar);
+        getSupportActionBar()?.setTitle("");
+        val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
-        nav_view.setNavigationItemSelectedListener(this)*/
+        nav_view.setNavigationItemSelectedListener(this)
     }
 
     // Backpress close drawer first then back function will be called
     override fun onBackPressed() {
+
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
+
             drawer_layout.closeDrawer(GravityCompat.START)
-        } else {
+
+        }
+        else {
             super.onBackPressed()
         }
     }
