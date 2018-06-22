@@ -11,4 +11,5 @@ open class BaseModel{
 
     @SerializedName("message")
     var message: String = ""
+
 }

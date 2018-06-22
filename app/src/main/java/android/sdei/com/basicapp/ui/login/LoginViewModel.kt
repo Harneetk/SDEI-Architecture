@@ -2,9 +2,11 @@ package android.sdei.com.basicapp.ui.login
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
+import android.content.Intent
 import android.databinding.ObservableField
 import android.sdei.com.basicapp.R
 import android.sdei.com.basicapp.model.LoginModel
+import android.sdei.com.basicapp.model.LoginResponse
 import android.sdei.com.basicapp.model.User
 import android.sdei.com.basicapp.repository.ApiUtilis
 import android.sdei.com.basicapp.repository.ErrorModel
@@ -14,6 +16,8 @@ import android.sdei.com.basicapp.utill.AppInstance
 import android.sdei.com.basicapp.utill.DEVICE_TYPE
 import android.util.Log
 import android.view.View
+import android.widget.Toast
+import kotlin.coroutines.experimental.coroutineContext
 
 /**
  * Created by parmil.sharma on 14/02/18.
@@ -28,16 +32,13 @@ class LoginViewModel : ViewModel() {
     var passwordError = ObservableField<String>()
 
     init {
-       //email.set("");
-       //password.set("");
 
-       email.set("parmil.sharma@smartdatainc.net");
-       password.set("ABcd11!!");
-      // email.set("amitk.shukla@smartdatainc.net");
-      // password.set("ABcd11!!");
 
-       emailError.set("")
-       passwordError.set("")
+       email.set("");
+       password.set("");
+
+       emailError.set("gs@g.com")
+       passwordError.set("12345678")
     }
 
     fun onLoginClick(view: View) {
@@ -51,10 +52,17 @@ class LoginViewModel : ViewModel() {
             if(isLoading.value==false) {
                 isLoading.value = true
                 val manager = NetworkManager()
-                manager.createApiRequest(ApiUtilis.getAPIService().login(email.get()!!, password.get()!!), object : ServiceListener<LoginModel> {
-                    override fun getServerResponse(response: LoginModel, requestcode: Int) {
+                manager.createApiRequest(ApiUtilis.getAPIService().login(email.get()!!, password.get()!!), object : ServiceListener<LoginResponse> {
+                    override fun getServerResponse(response: LoginResponse, requestcode: Int) {
                         AppInstance.loginModel = response
-                        getCurrentUser(AppInstance.loginModel!!.getToken())
+
+                        apiResponse.value = response
+
+                        apiError.value = response.message
+                        isLoading.value = false
+
+
+
                     }
 
                     override fun getError(error: ErrorModel, requestcode: Int) {
@@ -67,36 +75,9 @@ class LoginViewModel : ViewModel() {
     }
 
 
-    fun getCurrentUser(token: String){
-        if(!token.isNullOrEmpty()) {
-//            val manager = NetworkManager()
-//            manager.createApiRequest(ApiUtilis.getAPIService().getCurrentUser(token!!), object : ServiceListener<User> {
-//                override fun getServerResponse(response: User, requestcode: Int) {
-//                    AppInstance.userModel = response
-//                    apiResponse.value = response
-//                    saveToken(token)
-//                }
-//                override fun getError(error: ErrorModel, requestcode: Int) {
-//                    apiError.value = error.error_message
-//                    isLoading.value = false
-//                }
-//            })
-        }
-    }
 
 
-    fun saveToken(token: String){
-//        val refreshedToken = FirebaseInstanceId.getInstance().token
-//        if(!refreshedToken.isNullOrEmpty()) {
-//            val manager = NetworkManager()
-//            manager.createApiRequest(ApiUtilis.getAPIService().saveDeviceToken(token,refreshedToken!!,DEVICE_TYPE), object : ServiceListener<String> {
-//                override fun getServerResponse(response: String, requestcode: Int) {
-//                 Log.d("Response:::",""+response.toString())
-//                }
-//                override fun getError(error: ErrorModel, requestcode: Int) {
-//                    Log.d("Response:::",""+error.toString())
-//                }
-//            })
-//        }
-    }
+
+
+
 }

@@ -2,9 +2,11 @@ package android.sdei.com.basicapp.repository
 
 import android.sdei.com.basicapp.model.BaseModel
 import android.sdei.com.basicapp.model.LoginModel
+import android.sdei.com.basicapp.model.LoginResponse
 import io.reactivex.Observable
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import retrofit2.Call
 import retrofit2.http.*
 import retrofit2.http.FieldMap
 import retrofit2.http.PUT
@@ -17,9 +19,9 @@ import retrofit2.http.FormUrlEncoded
  */
 interface APIService {
 
-    @POST("login")
+    @POST("authenticate")
     @FormUrlEncoded
-    fun login(@Field("email") userName: String, @Field("password") password: String): Observable<LoginModel>
+    fun login(@Field("username") userName: String, @Field("password") password: String): Observable<LoginResponse>
 
     @POST("password/forgot")
     @FormUrlEncoded
@@ -33,16 +35,33 @@ interface APIService {
     @FormUrlEncoded
     fun getSaltKey(@Field("ssid") deviceId: String): Observable<String>
 
-    @POST("register")
+
+  /*  inputMap.put("first_name", signup.fName)
+    inputMap.put("last_name", isNull(signup.lName))
+    inputMap.put("email", signup.email)
+    inputMap.put("location", isNull(signup.location))
+    inputMap.put("gender", signup.getGender())
+    inputMap.put("contact", signup.contact)
+    inputMap.put("password", signup.password)
+    inputMap.put("zipCode", signup.zip)
+    inputMap.put("dob", signup.getDateOfBirth())
+    inputMap.put("user_type", isNull(signup.user_type))
+    inputMap.put("facebook_id", signup.facebook_id)*/
+
+
+    @Multipart
+    @POST("registration")
+     fun signUP(@Part("first_name") name: RequestBody,
+                        @Part("last_name") lastName: RequestBody,
+                        @Part("email") email: RequestBody,@Part("password") password: RequestBody):Observable<BaseModel>
+
+
+
+    /*@POST("registration")
     @FormUrlEncoded
     fun register(@Field("email") email: String, @Field("password") password: String,
                           @Field("first_name") first_name: String,@Field("last_name") last_name: String): Observable<LoginModel>
-
-
-    @PUT("users/{user_id}")
-    @FormUrlEncoded
-    fun editUser(@Header("Authorization") token: String,@Path("user_id") user_id: String, @FieldMap fields: Map<String, String>): Observable<String>
-
+*/
 
 
 }

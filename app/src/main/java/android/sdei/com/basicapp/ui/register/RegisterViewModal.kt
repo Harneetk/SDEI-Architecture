@@ -4,18 +4,21 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.databinding.ObservableField
 import android.sdei.com.basicapp.R
-import android.sdei.com.basicapp.model.LoginModel
+import android.sdei.com.basicapp.model.BaseModel
 import android.sdei.com.basicapp.repository.ApiUtilis
 import android.sdei.com.basicapp.repository.ErrorModel
 import android.sdei.com.basicapp.repository.NetworkManager
 import android.sdei.com.basicapp.repository.ServiceListener
 import android.sdei.com.basicapp.utill.isPasswordValid
 import android.view.View
+import okhttp3.MediaType
+import okhttp3.RequestBody
+
 /**
  * Created by parmil.sharma on 16/05/18.
  */
 class RegisterViewModal : ViewModel(){
-    var apiResponse = MutableLiveData<LoginModel>()
+    var apiResponse = MutableLiveData<BaseModel>()
     var isLoading = MutableLiveData<Boolean>()
     var apiError = MutableLiveData<String>()
     var termCondition = MutableLiveData<Boolean>()
@@ -58,11 +61,14 @@ class RegisterViewModal : ViewModel(){
     }
 
     fun registerPatient(){
-        if(isLoading.value==false) {
+        if(isLoading.value==false)
+        {
             isLoading.value = true
             val manager = NetworkManager()
-            manager.createApiRequest(ApiUtilis.getAPIService().register(email.get()!!, password.get()!!, firstName.get()!!, lastName.get()!!), object : ServiceListener<LoginModel> {
-                override fun getServerResponse(response: LoginModel, requestcode: Int) {
+
+
+            manager.createApiRequest(ApiUtilis.getAPIService().signUP(getrequestBody(firstName.get()), getrequestBody(lastName .get()) , getrequestBody(email .get()),getrequestBody(password .get())) ,object : ServiceListener<BaseModel> {
+                override fun getServerResponse(response: BaseModel, requestcode: Int) {
                     apiResponse.value = response
                     isLoading.value = false
                 }
@@ -75,6 +81,10 @@ class RegisterViewModal : ViewModel(){
         }
     }
 
+    internal fun getrequestBody(request: String? ): RequestBody {
+        return RequestBody.create(MediaType.parse("text/plain"), request)
+    }
+
 
     private fun checkValidation(view: View) : Boolean{
         setError()
@@ -82,11 +92,13 @@ class RegisterViewModal : ViewModel(){
         if(firstName.get()!!.isEmpty()){
             firstNameError.set(view.context.getString(R.string.please_enter_first_name))
             isValid=false
-         }
+        }
+
         else if(lastName.get()!!.isEmpty()){
             lastNameError.set(view.context.getString(R.string.please_enter_last_name))
             isValid=false
         }
+
         else if(email.get()!!.isEmpty()){
             emailError.set(view.context.getString(R.string.please_enter_email))
             isValid=false

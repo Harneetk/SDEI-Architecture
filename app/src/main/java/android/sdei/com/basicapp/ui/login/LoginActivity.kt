@@ -9,6 +9,7 @@ import android.sdei.com.basicapp.Dashboard
 import android.sdei.com.basicapp.R
 import android.sdei.com.basicapp.databinding.ActivityLoginBinding
 import android.sdei.com.basicapp.model.LoginModel
+import android.sdei.com.basicapp.model.LoginResponse
 import android.sdei.com.basicapp.ui.forgotpassword.ForgotPasswordActivity
 import android.sdei.com.basicapp.ui.register.RegisterActivity
 import android.sdei.com.basicapp.utill.PreferenceConnector
@@ -17,28 +18,30 @@ import android.support.v7.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.widget.Toast
 
 /**
  * Created by parmil.sharma on 13/02/18.
  */
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity()
+{
     lateinit var binding: ActivityLoginBinding
     private val registry = LifecycleRegistry(this)
     private lateinit var viewModel: LoginViewModel
     override fun getLifecycle(): LifecycleRegistry = registry
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
-        viewModel = LoginViewModel();
 
+       binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
+        viewModel = LoginViewModel();
         viewModel.isLoading.postValue(false)
         binding.viewModel = viewModel
-
         attachObserver()
-
         binding.etPasswordLayout.editText?.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+
                 if (s.length > 0) {
                     binding.etPasswordLayout.setError(null)
                     binding.etPasswordLayout.setErrorEnabled(false)
@@ -57,11 +60,14 @@ class LoginActivity : AppCompatActivity() {
                     binding.emailLayout.setErrorEnabled(false)
                 }
             }
-            override fun afterTextChanged(s: Editable) {}
+            override fun afterTextChanged(s: Editable) {
+
+            }
         })
 
 
         binding.forgotPassword.setOnClickListener(View.OnClickListener {
+
             var intent = Intent(this, ForgotPasswordActivity::class.java);
             startActivity(intent)
         })
@@ -74,29 +80,38 @@ class LoginActivity : AppCompatActivity() {
 
     private fun attachObserver() {
         viewModel.isLoading.observe(this, Observer<Boolean> {
-            it?.let { showLoadingDialog(it) }
+            it?.let {
+                showLoadingDialog(it)
+            }
         })
         viewModel.apiError.observe(this, Observer<String> {
             it?.let {
+                Toast.makeText(this, it, Toast.LENGTH_LONG).show()
 //                com.docsink.patient.utill.showDialog(this@LoginActivity,getString(R.string.docsink_patient),parseError(it))
             }
         })
         viewModel.apiResponse.observe(this, Observer<Any> {
             it?.let {
-                if(it is LoginModel) {
-                   if (it.error.isEmpty()) {
+                if(it is LoginResponse)
+                {
+                   if (it.status.equals("success"))
+                   {
+                       var intent = Intent(this, Dashboard::class.java);
+                       startActivity(intent)
+                       finish()
+
                         PreferenceConnector.writeString(this, PreferenceConnector.ACCESS_TOKEN, it.access_token)
-                       var token= PreferenceConnector.readString(this@LoginActivity,PreferenceConnector.ACCESS_TOKEN,"")
-                       viewModel.getCurrentUser("Bearer "+ token ?: "")
-                    } else {
-//                        com.docsink_patientk_patientk.patient.utill.showDialog(this@LoginActivity, getString(R.string.docsink_patient), parseError(it.message))
+                        var token= PreferenceConnector.readString(this@LoginActivity,PreferenceConnector.ACCESS_TOKEN,"")
+                        viewModel.getCurrentUser("Bearer "+ token ?: "")
+                    }
+
+                   else {
+                       Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+
+
                     }
                 }
-                else{
-                    var intent = Intent(this, Dashboard::class.java);
-                    startActivity(intent)
-                    finish()
-                }
+
             }
         })
     }

@@ -89,7 +89,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/space_20"
-                    android:background="@color/colorLightYellow">
+                    android:background="@color/colorDarkGray">
 
                     <Button
                         android:layout_width="match_parent"
