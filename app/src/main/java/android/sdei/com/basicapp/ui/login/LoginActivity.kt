@@ -29,11 +29,11 @@ class LoginActivity : AppCompatActivity()
     private val registry = LifecycleRegistry(this)
     private lateinit var viewModel: LoginViewModel
     override fun getLifecycle(): LifecycleRegistry = registry
+
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
-
-       binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
         viewModel = LoginViewModel();
         viewModel.isLoading.postValue(false)
         binding.viewModel = viewModel
