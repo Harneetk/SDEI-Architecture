@@ -4,6 +4,9 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
+/**
+ * Use this class for Date conversion formats as per the requirement
+ */
 
     var serverDate = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     var alohaDate = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
