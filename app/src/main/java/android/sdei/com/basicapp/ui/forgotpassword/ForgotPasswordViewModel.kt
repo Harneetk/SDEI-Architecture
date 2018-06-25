@@ -12,7 +12,7 @@ import android.sdei.com.basicapp.repository.NetworkManager
 import android.sdei.com.basicapp.repository.ServiceListener
 import android.view.View
 /**
- * Created by parmil.sharma on 19/06/18.
+ * This  model class  contain all the fields of the forgot passpword api.
  */
 class ForgotPasswordViewModel: ViewModel(){
     var isLoading = MutableLiveData<Boolean>()

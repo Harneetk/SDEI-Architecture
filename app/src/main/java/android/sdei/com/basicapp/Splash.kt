@@ -11,7 +11,11 @@ import android.sdei.com.basicapp.utill.PreferenceConnector
 import com.crashlytics.android.Crashlytics
 import io.fabric.sdk.android.Fabric
 
-
+/*
+*
+* this is the splash screen
+*
+* */
 class Splash : AppCompatActivity()
 {
     var binding: ActivitySplashBinding? = null

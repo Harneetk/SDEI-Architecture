@@ -3,8 +3,11 @@ package android.sdei.com.basicapp.model
 import com.google.gson.annotations.SerializedName
 
 /**
- * Created by parmil.sharma on 17/05/18.
- */
+ *
+ * @Base Model class :  This class contain the common response of every Api.
+ **/
+
+
 open class BaseModel{
     @SerializedName("error")
     var error: String = ""

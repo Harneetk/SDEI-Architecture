@@ -14,6 +14,11 @@ import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import kotlinx.android.synthetic.main.app_bar_dashboard.*
 
+/*
+*  it is the Dasboard screen.User can enter into this screen after the successfull login
+* and navigate to the other screen as per requirements
+* */
+
 class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {

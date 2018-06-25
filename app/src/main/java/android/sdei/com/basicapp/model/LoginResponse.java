@@ -3,9 +3,11 @@ package android.sdei.com.basicapp.model;
 import java.util.List;
 
 /**
- * Created by gurjeet.singh on 21/06/18.
+ *
+ * @Base LoginResponse class :  This class contain the all the fields having the  response of login api..
+ *
+ *
  */
-
 public class LoginResponse {
     /**
      * status : success

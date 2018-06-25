@@ -19,10 +19,10 @@ import java.util.concurrent.TimeoutException
 import okhttp3.ResponseBody
 
 
+/*
+* This class contain  methods for registration the observables for  handling the api responses*/
 
-/**
- * Created by parmil.sharma on 14/02/18.
- */
+
 class NetworkManager() {
    // var context: Context= mcontext
     protected var compositeDisposable: Disposable?=null

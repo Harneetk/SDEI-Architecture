@@ -12,8 +12,12 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 import okio.Buffer;
 import timber.log.Timber;
-
-public class TimberLoggingInterceptor implements Interceptor {
+/*
+* @ApiLogsInterceptor class use to print the logs of input and output parameters
+   of the apis
+ *
+* */
+public class ApiLogsInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();

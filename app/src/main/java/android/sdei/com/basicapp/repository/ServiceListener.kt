@@ -1,7 +1,7 @@
 package android.sdei.com.basicapp.repository
 
 /**
- * Created by parmil.sharma on 14/02/18.
+ * it contain the common method  @getServerResponse ,getError for handling the api response of api.
  */
 interface ServiceListener<T> {
     abstract fun getServerResponse(response: T, requestcode: Int)

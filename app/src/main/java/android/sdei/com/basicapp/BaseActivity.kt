@@ -12,9 +12,12 @@ import android.view.View
 import android.widget.TextView
 
 /**
- * Created by parmil.sharma on 08/05/18.
+ *
+ *  this class uses by the other activities for inherit the common properties
  */
-open class BaseActivity :  AppCompatActivity() {
+
+open class BaseActivity :  AppCompatActivity()
+{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -23,12 +26,13 @@ open class BaseActivity :  AppCompatActivity() {
 
     fun setUpToolBar(toolbar: Toolbar, toolbarTitle: TextView, title: String,showBackButton: Boolean) {
         setSupportActionBar(toolbar)
-
         supportActionBar?.setDisplayShowHomeEnabled(showBackButton)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setDisplayHomeAsUpEnabled(showBackButton)
         toolbarTitle.setText(title)
-        if (showBackButton){
+
+        if (showBackButton)
+        {
             toolbar.setNavigationIcon(R.drawable.ic_menu_gallery)
     }
         toolbar.setNavigationOnClickListener(View.OnClickListener {

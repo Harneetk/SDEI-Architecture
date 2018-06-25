@@ -1,25 +1,23 @@
 package android.sdei.com.basicapp.repository
 
 import android.sdei.com.basicapp.BuildConfig
-import android.util.Log
 import okhttp3.*
-import okhttp3.logging.HttpLoggingInterceptor
-import okio.Buffer
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-
 /**
- * Created by parmil.sharma on 14/02/18.
- */
+ *
+ * @B ApiUtilis :  This class contain the Base url of server as well as singletone values required.
+ **/
+
+
 class ApiUtilis {
     companion object {
+
         val BASE_URL =BuildConfig.SERVER_URL
         private val httpClient = OkHttpClient.Builder()
-
-
         private val builder = Retrofit.Builder()
                 .baseUrl(BASE_URL).addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
@@ -27,7 +25,7 @@ class ApiUtilis {
 
         fun getAPIService(): APIService {
 
-            val logging = TimberLoggingInterceptor()
+            val logging = ApiLogsInterceptor()
              httpClient.addInterceptor(logging)
              val client = httpClient.connectTimeout(30, TimeUnit.SECONDS)
                     .readTimeout(20, TimeUnit.SECONDS)

@@ -1,7 +1,7 @@
 package android.sdei.com.basicapp.utill
 
 /**
- * Created by parmil.sharma on 01/06/18.
+ * It contain all the constant field values that are used into other classes
  */
 
 val MUTE=15

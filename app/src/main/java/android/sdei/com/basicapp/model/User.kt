@@ -3,10 +3,15 @@ package android.sdei.com.basicapp.model
 
 import com.google.gson.annotations.SerializedName
 import java.security.Provider
-
 /**
- * Created by parmil.sharma on 01/06/18.
+ *
+ * @Base User class :  This class contain the all the fields having required for registration of the user..
+ *
+ *
  */
+
+
+
 class User {
     @SerializedName("id")
     var id: String = ""

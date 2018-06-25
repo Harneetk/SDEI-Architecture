@@ -4,10 +4,12 @@ import android.content.SharedPreferences
 
 
 /**
- * Created by parmil.sharma on 30/05/18.
+ *  this class is  uses for the storage using the Shared prefference class .
+ *  It contain all the methods for the fetching and storing the values as per requirement
  */
 
-class PreferenceConnector {
+class PreferenceConnector
+{
     companion object {
         val MODE = Context.MODE_PRIVATE
         val PREF_NAME = "DocsInk_V31"

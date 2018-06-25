@@ -14,6 +14,11 @@ import android.view.Menu
 import android.view.View
 
 
+
+/*
+*  This activity send  forgot password request
+* */
+
 class ForgotPasswordActivity : BaseActivity() {
     lateinit var binding: ActivityForgotPasswordBinding
     lateinit var viewModel: ForgotPasswordViewModel

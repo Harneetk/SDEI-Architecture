@@ -1,7 +1,7 @@
 package android.sdei.com.basicapp.repository
 
 /**
- * Created by parmil.sharma on 14/02/18.
+ * @ResponseCodes class contain all the static values of responses
  */
 class ResponseCodes {
 
@@ -16,7 +16,9 @@ class ResponseCodes {
     /** The Constant Success.  */
     val Accepted = 201
 
-    /** The Constant AccessToken expired.  */
+    /** The Constant AccessToken expired.
+     *
+     * */
     val ACCESS_TOKEN_EXPIRED = 401
 
     /** The Constant RefreshToken expired.  */

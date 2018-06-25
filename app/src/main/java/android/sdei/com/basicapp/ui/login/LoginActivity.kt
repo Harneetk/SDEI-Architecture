@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.sdei.com.basicapp.Dashboard
 import android.sdei.com.basicapp.R
 import android.sdei.com.basicapp.databinding.ActivityLoginBinding
-import android.sdei.com.basicapp.model.LoginModel
 import android.sdei.com.basicapp.model.LoginResponse
 import android.sdei.com.basicapp.ui.forgotpassword.ForgotPasswordActivity
 import android.sdei.com.basicapp.ui.register.RegisterActivity
@@ -22,9 +21,7 @@ import android.view.View
 import android.widget.Toast
 import java.util.*
 
-/**
- * Created by parmil.sharma on 13/02/18.
- */
+
 class LoginActivity : AppCompatActivity()
 {
     lateinit var binding: ActivityLoginBinding

@@ -15,7 +15,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 
 
 /**
- * Created by parmil.sharma on 14/02/18.
+ * @RetrofitClient it is singletone class for the retrofit instance
  */
 class RetrofitClient {
 
