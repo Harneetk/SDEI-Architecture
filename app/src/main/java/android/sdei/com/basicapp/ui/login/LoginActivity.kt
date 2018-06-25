@@ -14,11 +14,13 @@ import android.sdei.com.basicapp.ui.forgotpassword.ForgotPasswordActivity
 import android.sdei.com.basicapp.ui.register.RegisterActivity
 import android.sdei.com.basicapp.utill.PreferenceConnector
 import android.sdei.com.basicapp.utill.parseError
+import android.sdei.com.basicapp.utill.parseToDOBfromFb
 import android.support.v7.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.Toast
+import java.util.*
 
 /**
  * Created by parmil.sharma on 13/02/18.
@@ -78,6 +80,11 @@ class LoginActivity : AppCompatActivity()
         })
     }
 
+    override fun onResume() {
+        super.onResume()
+      
+    }
+
     private fun attachObserver() {
         viewModel.isLoading.observe(this, Observer<Boolean> {
             it?.let {
@@ -117,5 +124,7 @@ class LoginActivity : AppCompatActivity()
         if (show) binding.progressBar.visibility = View.VISIBLE else binding.progressBar.visibility = View.GONE
         if(show) binding.signIn.setText(getString(R.string.loading)) else  binding.signIn.setText(R.string.sign_in)
     }
+
+
 }
 
