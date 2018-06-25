@@ -103,12 +103,12 @@ class LoginActivity : AppCompatActivity()
                 {
                    if (it.status.equals("success"))
                    {
-                       var intent = Intent(this, Dashboard::class.java);
-                       startActivity(intent)
-                       finish()
+                        val isLogged =viewModel.isRemember?.get()as Boolean;
+                        PreferenceConnector.writeBoolean(this, PreferenceConnector.isRemember,isLogged )
+                        var intent = Intent(this, Dashboard::class.java);
+                        startActivity(intent)
+                        finish()
 
-                        PreferenceConnector.writeString(this, PreferenceConnector.ACCESS_TOKEN, it.access_token)
-                        var token= PreferenceConnector.readString(this@LoginActivity,PreferenceConnector.ACCESS_TOKEN,"")
                     }
 
                    else {

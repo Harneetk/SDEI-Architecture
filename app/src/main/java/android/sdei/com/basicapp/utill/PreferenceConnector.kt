@@ -12,6 +12,7 @@ class PreferenceConnector {
         val MODE = Context.MODE_PRIVATE
         val PREF_NAME = "DocsInk_V31"
         val ACCESS_TOKEN = "accesstoken"
+        val isRemember = "remember_login"
 
         fun writeBoolean(context: Context, key: String, value: Boolean) {
             getEditor(context).putBoolean(key, value).commit()

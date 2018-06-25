@@ -15,7 +15,6 @@
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:orientation="vertical">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -28,7 +27,6 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:src="@mipmap/ic_launcher" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -54,8 +52,6 @@
                         android:text="@={viewModel.email}" />
 
                 </android.support.design.widget.TextInputLayout>
-
-
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/etPasswordLayout"
                     android:layout_width="match_parent"
@@ -64,7 +60,6 @@
                     android:hint="Password"
                     app:errorText="@{viewModel.passwordError}"
                     app:passwordToggleEnabled="true">
-
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -74,12 +69,19 @@
                         android:text="@={viewModel.password}" />
                 </android.support.design.widget.TextInputLayout>
 
-
+                <CheckBox
+                    android:id="@+id/termsConditionsCheck"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Remember me"
+                     android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:checked="@={viewModel.isRemember}" />
                 <TextView
                     android:id="@+id/forgotPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_5"
+                    android:layout_marginTop="@dimen/space_20"
                     android:gravity="right"
                     android:text="@string/forgot_password"
                     android:textColor="@color/colorPrimary"
@@ -88,7 +90,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_20"
+                    android:layout_marginTop="@dimen/space_30"
                     android:background="@color/colorPrimaryDark">
                     <Button
                         android:layout_width="match_parent"
@@ -115,8 +117,6 @@
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
-
-
         <LinearLayout
             android:id="@+id/bottomLayout"
             android:layout_width="match_parent"

@@ -5,30 +5,29 @@
             name="viewModel"
             type="android.sdei.com.basicapp.ui.register.RegisterViewModal" />
     </data>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="?android:attr/windowBackground">
+        >
 
-
-
-   <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:orientation="vertical"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-            <android.support.v4.widget.NestedScrollView
-                android:id="@+id/scrollView"
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:theme="@style/toolbar_theme"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:showIn="@layout/activity_dashboard">
-
-                <LinearLayout
+                app:navigationIcon="@drawable/ic_action_name"
+                android:layout_height="?attr/actionBarSize"
+                app:title="@string/register"
+                android:background="?attr/colorPrimary"
+                />
+        <android.support.v4.widget.NestedScrollView
+                android:id="@+id/scrollView"
+               android:layout_below="@+id/toolbar"
+               android:focusableInTouchMode="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <LinearLayout
                     android:id="@+id/fragment_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -160,45 +159,47 @@
                             android:textSize="@dimen/text_size_18" />
 
                     </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="@dimen/space_40"
+                        android:background="@color/colorLightYellow">
+
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorDarkGray"
+                            android:text="@string/register"
+                            android:id="@+id/register"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/text_size_16"
+                            android:onClick="@{viewModel::onRegisterClick}"/>
+
+                        <ProgressBar
+                            android:id="@+id/progressBar"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:visibility="invisible"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/space_10"
+                            android:indeterminate="true"
+                            android:theme="@style/WhiteProgressBarStyle"/>
+
+
+                    </RelativeLayout>
+
                 </LinearLayout>
 
             </android.support.v4.widget.NestedScrollView>
 
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_margin="@dimen/space_15"
-                android:background="@color/colorLightYellow">
 
 
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/colorDarkGray"
-                    android:text="@string/register"
-                    android:id="@+id/register"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_size_16"
-                    android:onClick="@{viewModel::onRegisterClick}"/>
-
-                <ProgressBar
-                    android:id="@+id/progressBar"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:visibility="invisible"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/space_10"
-                    android:indeterminate="true"
-                    android:theme="@style/WhiteProgressBarStyle"/>
 
 
-            </RelativeLayout>
-
-        </LinearLayout>
-
-
-    </LinearLayout>
+    </RelativeLayout>
 </layout>

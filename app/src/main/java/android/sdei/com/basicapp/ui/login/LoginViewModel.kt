@@ -28,9 +28,11 @@ class LoginViewModel : ViewModel()
     var apiError = MutableLiveData<String>()
     var apiResponse = MutableLiveData<Any>()
     var email = ObservableField<String>()
+    var isRemember = ObservableField<Boolean>(false)
     var password = ObservableField<String>()
     var emailError = ObservableField<String>()
     var passwordError = ObservableField<String>()
+
 
     init {
 

@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.sdei.com.basicapp.databinding.ActivitySplashBinding
 import android.sdei.com.basicapp.ui.login.LoginActivity
+import android.sdei.com.basicapp.utill.PreferenceConnector
 import com.crashlytics.android.Crashlytics
 import io.fabric.sdk.android.Fabric
 
@@ -21,7 +22,16 @@ class Splash : AppCompatActivity()
         Fabric.with(this, Crashlytics())
 
         Handler().postDelayed({
-            val intent=Intent(this, LoginActivity::class.java);
+            val intent:Intent;
+            val  isLoggin=PreferenceConnector.readBoolean(this,PreferenceConnector.isRemember,false);
+
+            if(isLoggin) {
+                intent = Intent(this, Dashboard::class.java);
+            }
+            else
+            {
+                intent  = Intent(this, LoginActivity::class.java);
+            }
             startActivity(intent);
             finish()
         }, 3000)
