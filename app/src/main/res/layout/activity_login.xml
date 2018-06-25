@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:src="@drawable/ic_launcher_background" />
+                android:src="@mipmap/ic_launcher" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -89,8 +89,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/space_20"
-                    android:background="@color/colorLightYellow">
-
+                    android:background="@color/colorPrimaryDark">
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -102,8 +101,6 @@
                         android:text="@string/sign_in"
                         android:textColor="@color/colorWhite"
                         android:textSize="@dimen/text_size_16"/>
-
-
                     <ProgressBar
                         android:id="@+id/progressBar"
                         android:layout_width="@dimen/space_25"

@@ -5,6 +5,7 @@ import android.content.Context
 
 import android.net.ParseException
 import android.util.Log
+import com.crashlytics.android.Crashlytics
 import com.google.gson.stream.MalformedJsonException
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -15,6 +16,9 @@ import retrofit2.HttpException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import java.util.concurrent.TimeoutException
+import okhttp3.ResponseBody
+
+
 
 /**
  * Created by parmil.sharma on 14/02/18.
@@ -49,6 +53,7 @@ class NetworkManager() {
 
                     override fun onError(@io.reactivex.annotations.NonNull e: Throwable) {
                         callBack.getError(setUpErrors(e), 0)
+
                     }
 
                     override fun onComplete() {}
@@ -118,4 +123,7 @@ class NetworkManager() {
         }
 
     }
+
+
+
 }

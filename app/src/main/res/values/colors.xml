@@ -18,11 +18,15 @@
     <color name="colorLightGrayX">#F5F5F5</color>
     <color name="trans_success_stroke_color">#33A5DC86</color>
     <color name="menu_item_1">#1677A1</color>
-    <color name="banana">#FFCC00</color>
     <color name="colorLightYellow">#FFFFE0</color>
     <color name="color_Tab_unselected">#CCFFFFFF</color>
     <color name="colorE">#c4c4c4</color>
     <color name="colorGreen">#22c064</color>
+    <color name="black">#000000</color>
+        <color name="white">#FFFF</color>
+        <color name="gray">#cccccc</color>
+        <color name="dark_gray">#E0E0E0</color>
+        <color name="transparent">#000000</color>
 
-    <color name="transparent">#00000000</color>
-</resources>
+    </resources>
+

@@ -2,6 +2,7 @@ package android.sdei.com.basicapp.utill
 
 import android.graphics.Bitmap
 import android.sdei.com.basicapp.model.LoginModel
+import android.sdei.com.basicapp.model.LoginResponse
 import android.sdei.com.basicapp.model.User
 import com.nostra13.universalimageloader.core.DisplayImageOptions
 import com.nostra13.universalimageloader.core.assist.ImageScaleType
@@ -12,7 +13,7 @@ import java.util.*
  * Created by parmil.sharma on 01/06/18.
  */
 object AppInstance {
-    var loginModel: LoginModel?= null
+    var loginModel: LoginResponse?= null
     var userModel: User?= null
     var CURRENT_CHAT_ID = ""
     init {}

@@ -176,7 +176,7 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
+                    android:background="@color/colorDarkGray"
                     android:text="@string/register"
                     android:id="@+id/register"
                     android:textColor="@color/colorWhite"
