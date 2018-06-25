@@ -1,7 +1,7 @@
 package android.sdei.com.basicapp.repository
 
+import android.sdei.com.basicapp.BuildConfig
 import android.util.Log
-import com.crashlytics.android.Crashlytics
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import okio.Buffer
@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit
  */
 class ApiUtilis {
     companion object {
-        val BASE_URL = "http://52.34.207.5:4048/user/"
+        val BASE_URL =BuildConfig.SERVER_URL
         private val httpClient = OkHttpClient.Builder()
 
 

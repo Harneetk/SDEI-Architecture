@@ -5,8 +5,12 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'io.fabric'
 
 android {
+    flavorDimensions "default"
     compileSdkVersion 27
-    defaultConfig {
+
+
+    defaultConfig
+            {
         applicationId "android.sdei.com.basicapp"
         minSdkVersion 15
         targetSdkVersion 27
@@ -23,6 +27,18 @@ android {
 
     dataBinding {
         enabled true
+    }
+
+    productFlavors {
+        staging {
+              buildConfigField "String", "SERVER_URL", '"http://52.34.207.5:4048/user/"'
+                // ToDO Add app name here
+//            resValue "string", "facebook_app_id", "1681570598520688"
+//            resValue "string", "fb_login_protocol_scheme", "fb1681570598520688"
+//            resValue "string", "facebook_content_provider", "com.facebook.app.FacebookContentProvider1681570598520688-remove"
+        }
+
+
     }
 }
 
