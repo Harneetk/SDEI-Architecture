@@ -30,26 +30,26 @@ class ForgotPasswordViewModel: ViewModel(){
         isLoading.value=false
     }
 
-    fun onForgotPassword(view: View) {
-        emailError.set("")
-       if (email.get()!!.isEmpty()) {
-            emailError.set(view.context.getString(R.string.please_enter_email))
-        } else {
-            if(isLoading.value==false) {
-                isLoading.value = true
-                val manager = NetworkManager()
-                manager.createApiRequest(ApiUtilis.getAPIService().forgotPassword(email.get()!!), object : ServiceListener<BaseModel> {
-                    override fun getServerResponse(response: BaseModel, requestcode: Int) {
-                        apiResponse.value = response
-                        isLoading.value = false
-                    }
-
-                    override fun getError(error: ErrorModel, requestcode: Int) {
-                        apiError.value = error.error_message
-                        isLoading.value = false
-                    }
-                })
-            }
-        }
-    }
+//    fun onForgotPassword(view: View) {
+//        emailError.set("")
+//       if (email.get()!!.isEmpty()) {
+//            emailError.set(view.context.getString(R.string.please_enter_email))
+//        } else {
+//            if(isLoading.value==false) {
+//                isLoading.value = true
+//                val manager = NetworkManager()
+//                manager.createApiRequest(ApiUtilis.getAPIService().forgotPassword(email.get()!!), object : ServiceListener<BaseModel> {
+//                    override fun getServerResponse(response: BaseModel, requestcode: Int) {
+//                        apiResponse.value = response
+//                        isLoading.value = false
+//                    }
+//
+//                    override fun getError(error: ErrorModel, requestcode: Int) {
+//                        apiError.value = error.error_message
+//                        isLoading.value = false
+//                    }
+//                })
+//            }
+//        }
+//    }
 }
