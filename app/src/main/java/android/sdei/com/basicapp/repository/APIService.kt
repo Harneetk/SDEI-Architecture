@@ -28,17 +28,8 @@ interface APIService
     @FormUrlEncoded
     fun login(@Field("username") userName: String, @Field("password") password: String): Observable<LoginResponse>
 
-    @POST("password/forgot")
-    @FormUrlEncoded
-    fun forgotPassword(@Field("email") email: String): Observable<BaseModel>
 
-    @POST("devicetokens")
-    @FormUrlEncoded
-    fun saveDeviceToken(@Header("Authorization") authToken: String,@Field("token") token: String,@Field("device") device: String): Observable<String>
 
-    @POST("client_identifier")
-    @FormUrlEncoded
-    fun getSaltKey(@Field("ssid") deviceId: String): Observable<String>
 
 
 

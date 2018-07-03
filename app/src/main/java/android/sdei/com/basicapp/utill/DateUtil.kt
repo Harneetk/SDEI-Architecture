@@ -1,7 +1,9 @@
 package android.sdei.com.basicapp.utill
 
 import java.text.ParseException
+
 import java.text.SimpleDateFormat
+
 import java.util.*
 
 /**
@@ -29,10 +31,14 @@ import java.util.*
 
 
     @Throws(ParseException::class)
+
+
     fun parseToDOBfromFb(fbDate: String): Date {
+
         return DOBfacebook.parse(fbDate)
 
     }
+
 
     fun currentHourDay(): Int {
         return Calendar.getInstance().get(Calendar.HOUR_OF_DAY)

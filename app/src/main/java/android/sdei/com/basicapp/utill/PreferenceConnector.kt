@@ -1,5 +1,7 @@
 package android.sdei.com.basicapp.utill
+
 import android.content.Context
+
 import android.content.SharedPreferences
 
 
@@ -10,17 +12,20 @@ import android.content.SharedPreferences
 
 class PreferenceConnector
 {
-    companion object {
+    companion object
+    {
         val MODE = Context.MODE_PRIVATE
         val PREF_NAME = "DocsInk_V31"
         val ACCESS_TOKEN = "accesstoken"
-        val isRemember = "remember_login"
+        val isRemember = "" +
+                ""
 
         fun writeBoolean(context: Context, key: String, value: Boolean) {
             getEditor(context).putBoolean(key, value).commit()
         }
 
-        fun readBoolean(context: Context, key: String, defValue: Boolean): Boolean {
+        fun readBoolean(context: Context, key: String, defValue: Boolean): Boolean
+        {
             return getPreferences(context)!!.getBoolean(key, defValue)
         }
 

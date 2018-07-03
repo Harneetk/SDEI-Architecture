@@ -34,6 +34,7 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
     }
 
     // Backpress close drawer first then back function will be called
+
     override fun onBackPressed() {
 
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {

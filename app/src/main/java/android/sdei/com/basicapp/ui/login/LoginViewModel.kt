@@ -5,14 +5,12 @@ import android.arch.lifecycle.ViewModel
 import android.content.Intent
 import android.databinding.ObservableField
 import android.sdei.com.basicapp.R
-import android.sdei.com.basicapp.model.LoginModel
 import android.sdei.com.basicapp.model.LoginResponse
 import android.sdei.com.basicapp.model.User
 import android.sdei.com.basicapp.repository.ApiUtilis
 import android.sdei.com.basicapp.repository.ErrorModel
 import android.sdei.com.basicapp.repository.NetworkManager
 import android.sdei.com.basicapp.repository.ServiceListener
-import android.sdei.com.basicapp.utill.AppInstance
 import android.sdei.com.basicapp.utill.DEVICE_TYPE
 import android.util.Log
 import android.view.View
@@ -57,7 +55,6 @@ class LoginViewModel : ViewModel()
                 val manager = NetworkManager()
                 manager.createApiRequest(ApiUtilis.getAPIService().login(email.get()!!, password.get()!!), object : ServiceListener<LoginResponse> {
                     override fun getServerResponse(response: LoginResponse, requestcode: Int) {
-                        AppInstance.loginModel = response
 
                         apiResponse.value = response
 

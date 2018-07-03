@@ -7,7 +7,6 @@ import android.sdei.com.basicapp.BaseActivity
 import android.sdei.com.basicapp.R
 import android.sdei.com.basicapp.databinding.ActivityRegisterBinding
 import android.sdei.com.basicapp.model.BaseModel
-import android.sdei.com.basicapp.model.LoginModel
 import android.sdei.com.basicapp.utill.parseError
 import android.view.Menu
 import android.view.MenuItem
