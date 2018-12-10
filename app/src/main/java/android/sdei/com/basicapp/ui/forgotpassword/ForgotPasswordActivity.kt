@@ -1,18 +1,14 @@
 package android.sdei.com.basicapp.ui.forgotpassword
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
 import android.sdei.com.basicapp.BaseActivity
 import android.sdei.com.basicapp.R
 import android.sdei.com.basicapp.databinding.ActivityForgotPasswordBinding
 
 import android.sdei.com.basicapp.model.BaseModel
-import android.sdei.com.basicapp.ui.forgotpassword.ForgotPasswordViewModel
-import android.view.Menu
-import android.view.View
-
 
 
 /*

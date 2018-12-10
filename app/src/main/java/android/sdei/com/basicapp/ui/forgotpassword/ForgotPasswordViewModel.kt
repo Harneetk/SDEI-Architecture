@@ -1,16 +1,9 @@
 package android.sdei.com.basicapp.ui.forgotpassword
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
-import android.bluetooth.BluetoothProfile
-import android.databinding.ObservableField
-import android.sdei.com.basicapp.R
-import android.sdei.com.basicapp.model.BaseModel
-import android.sdei.com.basicapp.repository.ApiUtilis
-import android.sdei.com.basicapp.repository.ErrorModel
-import android.sdei.com.basicapp.repository.NetworkManager
-import android.sdei.com.basicapp.repository.ServiceListener
-import android.view.View
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.databinding.ObservableField
+
 /**
  * This  model class  contain all the fields of the forgot passpword api.
  */

@@ -4,15 +4,15 @@ package android.sdei.com.basicapp.utill
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
-import android.databinding.BindingAdapter
+import androidx.databinding.BindingAdapter
 import android.graphics.*
 import android.media.ExifInterface
 import android.net.Uri
 import android.os.Environment
 import android.provider.MediaStore
 import android.sdei.com.basicapp.R
-import android.support.design.widget.TextInputLayout
-import android.support.v7.app.AlertDialog
+import com.google.android.material.textfield.TextInputLayout
+import androidx.appcompat.app.AlertDialog
 import android.text.*
 import android.util.Log
 import android.util.TypedValue
@@ -45,7 +45,7 @@ var emailregex2 = "@[.*\\[]+[0-9]+:[A-Za-z0-9\\s]+[.*\\]]"
 }
 
  @BindingAdapter("textChangeListener")
- fun setTextChangeListener(view: TextInputLayout,enabled: Boolean) : Unit? {
+ fun setTextChangeListener(view: TextInputLayout, enabled: Boolean) : Unit? {
     return view.editText?.addTextChangedListener(object : TextWatcher {
         override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
         override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
@@ -61,7 +61,7 @@ var emailregex2 = "@[.*\\[]+[0-9]+:[A-Za-z0-9\\s]+[.*\\]]"
 }
 
  @BindingAdapter("passwordChangeListener")
- fun setPasswordChangeListener(view: TextInputLayout,enabled: Boolean) : Unit? {
+ fun setPasswordChangeListener(view: TextInputLayout, enabled: Boolean) : Unit? {
     return view.editText?.addTextChangedListener(object : TextWatcher {
         override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
 

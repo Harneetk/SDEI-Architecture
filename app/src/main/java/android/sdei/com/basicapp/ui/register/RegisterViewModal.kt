@@ -1,8 +1,8 @@
 package android.sdei.com.basicapp.ui.register
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
-import android.databinding.ObservableField
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.databinding.ObservableField
 import android.sdei.com.basicapp.R
 import android.sdei.com.basicapp.model.BaseModel
 import android.sdei.com.basicapp.repository.ApiUtilis

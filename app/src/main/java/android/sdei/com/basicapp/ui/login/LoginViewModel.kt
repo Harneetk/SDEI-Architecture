@@ -1,21 +1,15 @@
 package android.sdei.com.basicapp.ui.login
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
-import android.content.Intent
-import android.databinding.ObservableField
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.databinding.ObservableField
 import android.sdei.com.basicapp.R
 import android.sdei.com.basicapp.model.LoginResponse
-import android.sdei.com.basicapp.model.User
 import android.sdei.com.basicapp.repository.ApiUtilis
 import android.sdei.com.basicapp.repository.ErrorModel
 import android.sdei.com.basicapp.repository.NetworkManager
 import android.sdei.com.basicapp.repository.ServiceListener
-import android.sdei.com.basicapp.utill.DEVICE_TYPE
-import android.util.Log
 import android.view.View
-import android.widget.Toast
-import kotlin.coroutines.experimental.coroutineContext
 
 /**
  * Created by parmil.sharma on 14/02/18.

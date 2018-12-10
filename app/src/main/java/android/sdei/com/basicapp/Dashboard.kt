@@ -4,18 +4,16 @@ import android.content.Intent
 import android.os.Bundle
 import android.sdei.com.basicapp.ui.login.LoginActivity
 import android.sdei.com.basicapp.utill.PreferenceConnector
-import android.support.design.widget.Snackbar
-import android.support.design.widget.NavigationView
-import android.support.v4.view.GravityCompat
-import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.app.AppCompatActivity
+import com.google.android.material.navigation.NavigationView
+import androidx.core.view.GravityCompat
+import androidx.appcompat.app.ActionBarDrawerToggle
 import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import kotlinx.android.synthetic.main.app_bar_dashboard.*
 
 /*
-*  it is a Dashboard activity.User can enter into this screen after the successfull login
+*  it is a Dashboard activity.User can enter into this screen after the successful login
 * and navigate to the other screen as per requirements
 * */
 

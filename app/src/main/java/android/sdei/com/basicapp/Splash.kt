@@ -1,8 +1,8 @@
 package android.sdei.com.basicapp
 
 import android.content.Intent
-import android.databinding.DataBindingUtil
-import android.support.v7.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.sdei.com.basicapp.databinding.ActivitySplashBinding

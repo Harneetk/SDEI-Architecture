@@ -17,6 +17,7 @@ import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import java.util.concurrent.TimeoutException
 import okhttp3.ResponseBody
+import java.net.UnknownServiceException
 
 
 /*
@@ -96,7 +97,10 @@ class NetworkManager() {
             } else if (t is UnknownHostException) {
                 errorModel.error_code = ResponseCodes.INTERNET_NOT_AVAILABLE
                 errorModel.error_message = ResponseCodes.logErrorMessage(errorModel.error_code)
-            } else {
+            }else if (t is UnknownServiceException) {
+                errorModel.error_code = ResponseCodes.UNKNOWN_ERROR
+                errorModel.error_message = ResponseCodes.logErrorMessage(errorModel.error_code)
+            } else  {
                 val errorMessage = (t as HttpException).response().errorBody()!!.string()
                 val responseCode = t.response().code()
                 errorModel.error_code = responseCode

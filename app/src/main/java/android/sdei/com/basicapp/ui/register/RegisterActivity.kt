@@ -1,15 +1,12 @@
 package android.sdei.com.basicapp.ui.register
 
-import android.arch.lifecycle.Observer
-import android.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
 import android.sdei.com.basicapp.BaseActivity
 import android.sdei.com.basicapp.R
 import android.sdei.com.basicapp.databinding.ActivityRegisterBinding
 import android.sdei.com.basicapp.model.BaseModel
-import android.sdei.com.basicapp.utill.parseError
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 
 class RegisterActivity : BaseActivity() {

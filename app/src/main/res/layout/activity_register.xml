@@ -12,7 +12,7 @@
         android:orientation="vertical"
         >
 
-            <android.support.v7.widget.Toolbar
+            <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:theme="@style/toolbar_theme"
                 android:layout_width="match_parent"
@@ -21,7 +21,7 @@
                 app:title="@string/register"
                 android:background="?attr/colorPrimary"
                 />
-        <android.support.v4.widget.NestedScrollView
+        <androidx.core.widget.NestedScrollView
                 android:id="@+id/scrollView"
                android:layout_below="@+id/toolbar"
                android:focusableInTouchMode="true"
@@ -35,7 +35,7 @@
                     android:layout_marginRight="@dimen/space_10"
                     android:orientation="vertical">
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/firstNameLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -51,9 +51,9 @@
                             android:inputType="text"
                             android:text="@={viewModel.firstName}"
                             android:singleLine="true" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/lastNameLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -69,9 +69,9 @@
                             android:inputType="text"
                             android:text="@={viewModel.lastName}"
                             android:singleLine="true" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/emailLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -87,11 +87,11 @@
                             android:inputType="textEmailAddress"
                             android:text="@={viewModel.email}"
                             android:singleLine="true" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/passwordLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -108,9 +108,9 @@
                             android:inputType="textPassword"
                             android:text="@={viewModel.password}"
                             android:singleLine="true" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/verifyPasswordLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
                             android:inputType="textPassword"
                             android:text="@={viewModel.verifyPassword}"
                             android:maxLines="1" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
                     <LinearLayout
@@ -194,7 +194,7 @@
 
                 </LinearLayout>
 
-            </android.support.v4.widget.NestedScrollView>
+            </androidx.core.widget.NestedScrollView>
 
 
 

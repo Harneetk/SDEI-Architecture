@@ -1,13 +1,10 @@
 package android.sdei.com.basicapp
 
-import android.content.res.Configuration
 import android.os.Bundle
-import android.support.design.widget.AppBarLayout
-import android.support.design.widget.CollapsingToolbarLayout
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 
-import android.support.v4.content.res.ResourcesCompat
+import androidx.core.content.res.ResourcesCompat
 import android.view.View
 import android.widget.TextView
 
@@ -35,9 +32,9 @@ open class BaseActivity :  AppCompatActivity()
         {
             toolbar.setNavigationIcon(R.drawable.ic_menu_gallery)
     }
-        toolbar.setNavigationOnClickListener(View.OnClickListener {
+        toolbar.setNavigationOnClickListener{
             finish();
-        })
+        }
     }
 
 
