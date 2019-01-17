@@ -1,4 +1,4 @@
-# Kotlin-Basic-Architecture
+# smartData-Architecture
 
 This architecture covers following items:
 
