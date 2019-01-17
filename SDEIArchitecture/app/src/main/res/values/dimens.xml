@@ -1,0 +1,11 @@
+<resources>
+
+    <dimen name="dimen_20">20dp</dimen>
+
+    <dimen name="dimen_50">50dp</dimen>
+    <dimen name="dimen_60">60dp</dimen>
+    <dimen name="dimen_100">100dp</dimen>
+
+    <dimen name="font_16">16sp</dimen>
+
+</resources>

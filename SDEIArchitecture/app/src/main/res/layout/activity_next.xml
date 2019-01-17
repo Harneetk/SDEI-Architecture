@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable name="user" type="com.sdei.sdeiarchitecture.data.User"/>
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout android:layout_width="match_parent"
+                                                         android:layout_height="match_parent">
+
+        <androidx.drawerlayout.widget.DrawerLayout android:id="@+id/drawer_layout"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   tools:openDrawer="start">
+
+            <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/my_toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="?attr/colorPrimary"
+                        android:elevation="4dp"
+                        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/app_name"
+                            android:layout_gravity="center"
+                            android:textSize="16sp"
+                            android:textColor="@android:color/white"
+                            android:id="@+id/toolbar_title" />
+
+                </androidx.appcompat.widget.Toolbar>
+
+                <FrameLayout
+                        android:id="@+id/dashboard_fragment_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_above="@+id/tabs_tl"
+                        android:layout_below="@+id/my_toolbar"/>
+
+                <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tabs_tl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/colorAccent"
+                        app:tabGravity="fill"
+                        app:tabIndicatorHeight="0px"
+                        app:tabMaxWidth="0dp"
+                        app:tabMode="fixed"
+                        app:tabPaddingEnd="0px"
+                        app:tabPaddingStart="0px"/>
+
+            </RelativeLayout>
+
+            <!-- Container for contents of drawer - use NavigationView to make configuration easier -->
+            <com.google.android.material.navigation.NavigationView
+                    android:id="@+id/nav_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start"
+                    android:fitsSystemWindows="true"
+                    app:menu="@menu/drawer_view"
+                    app:headerLayout="@layout/nav_header"/>
+
+        </androidx.drawerlayout.widget.DrawerLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

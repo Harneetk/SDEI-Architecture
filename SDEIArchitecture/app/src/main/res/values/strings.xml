@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">SDEIArchitecture</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="invalid_email">Please enter valid email</string>
+    <string name="enter_password">Please enter password</string>
+    <string name="invalid_password">Password length should be between 6 to 20 characters</string>
+    <string name="ok">OK</string>
+    <string name="home">Home</string>
+    <string name="graph">Graph</string>
+    <string name="alarm">Alarm</string>
+    <string name="music">Music</string>
+    <string name="version">Version</string>
+    <string name="post_request">Post Request</string>
+
+    <string name="server_taking_too_long_to_respond">Server is taking too long to respond OR something is wrong with your internet connection. Please try again later.</string>
+    <string name="unable_to_connect">Unable to connect with server</string>
+    <string name="please_wait">Please wait...</string>
+    <string name="get_request">Get Request</string>
+    <string name="db_retrieve">Get data from DB</string>
+    <string name="delete_record_from_db">Delete record from DB</string>
+    <string name="no_record_found">No record found</string>
+
+    <integer-array name="home_tab_items_drawable">
+        <item>@drawable/ic_home</item>
+        <item>@drawable/ic_graph</item>
+        <item>@drawable/ic_alarm</item>
+        <item>@drawable/ic_tab_music</item>
+    </integer-array>
+
+    <string-array name="home_tab_items_name">
+        <item>@string/home</item>
+        <item>@string/graph</item>
+        <item>@string/alarm</item>
+        <item>@string/music</item>
+        <item>@string/version</item>
+    </string-array>
+
+
+</resources>
