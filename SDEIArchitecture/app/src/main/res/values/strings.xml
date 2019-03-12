@@ -21,6 +21,8 @@
     <string name="db_retrieve">Get data from DB</string>
     <string name="delete_record_from_db">Delete record from DB</string>
     <string name="no_record_found">No record found</string>
+    <string name="list_items">List Items</string>
+    <string name="back">Back</string>
 
     <integer-array name="home_tab_items_drawable">
         <item>@drawable/ic_home</item>

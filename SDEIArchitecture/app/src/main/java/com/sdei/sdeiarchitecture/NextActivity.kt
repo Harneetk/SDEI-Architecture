@@ -83,7 +83,7 @@ class NextActivity : BaseActivity(){
     }
 
     private fun openHomePage() {
-        openFragment(R.id.dashboard_fragment_container, HomeFragment())
+        openFragment(HomeFragment())
     }
 
 }

@@ -56,14 +56,33 @@ inline fun <reified T : Activity> Activity.navigate() {
     startActivity(intent)
 }
 
-fun AppCompatActivity.openFragment(containerViewId: Int,
-                 targetFragment: Fragment
-) {
+fun AppCompatActivity.openFragment(targetFragment: Fragment) {
     val fragmentName = targetFragment.javaClass.name
     supportFragmentManager.beginTransaction()
-        .replace(containerViewId, targetFragment, fragmentName)
+        .replace(R.id.dashboard_fragment_container, targetFragment, fragmentName)
         .addToBackStack(fragmentName)
         .commit()
+}
+
+fun Fragment.openFragment(targetFragment: Fragment) {
+    val fragmentName = targetFragment.javaClass.name
+    fragmentManager!!.beginTransaction()
+        .replace(R.id.dashboard_fragment_container, targetFragment, fragmentName)
+        .addToBackStack(fragmentName)
+        .commit()
+}
+
+fun Fragment.popBackFragment(fragment: Fragment) {
+    try {
+        if (fragmentManager != null) {
+            fragmentManager!!.popBackStackImmediate()
+            val transaction = fragmentManager!!.beginTransaction()
+            transaction.remove(fragment)
+            transaction.commit()
+        }
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
 }
 
 fun AppCompatActivity.handleApiError(t: Throwable?, coordinatorLayout: ViewGroup, appHelper: AppHelper) {
@@ -73,7 +92,8 @@ fun AppCompatActivity.handleApiError(t: Throwable?, coordinatorLayout: ViewGroup
     } else {
         val errorMessage: String = t!!.message as String
         if (!errorMessage.isEmpty()
-            && (errorMessage.contains("Failed to connect to") || errorMessage.contains("failed to connect to"))) {
+            && (errorMessage.contains("Failed to connect to") || errorMessage.contains("failed to connect to"))
+        ) {
             appHelper.showSnackBarToast(getString(R.string.unable_to_connect), coordinatorLayout)
         } else {
             appHelper.showSnackBarToast(errorMessage, coordinatorLayout)

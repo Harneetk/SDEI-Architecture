@@ -14,6 +14,7 @@ import com.sdei.sdeiarchitecture.data.UserListResponse
 import com.sdei.sdeiarchitecture.databinding.FragmentHomeBinding
 import com.sdei.sdeiarchitecture.helper.dagger.ApiHelper
 import com.sdei.sdeiarchitecture.helper.dagger.AppHelper
+import com.sdei.sdeiarchitecture.helper.openFragment
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -40,7 +41,11 @@ class HomeFragment : BaseFragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
+
         when (v?.id) {
+            R.id.list_btn -> {
+                openFragment(RecyclerItemsPage())
+            }
             R.id.post_request_btn -> {
                 postRequest()
             }
@@ -60,6 +65,7 @@ class HomeFragment : BaseFragment(), View.OnClickListener {
                 appHelper.deleteUserInfo(context!!, userInfo)
             }
         }
+
     }
 
     private fun getRequest() {

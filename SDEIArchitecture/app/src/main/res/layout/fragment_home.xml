@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable name="listener" type="android.view.View.OnClickListener"/>
@@ -10,6 +10,19 @@
             android:id="@+id/parent"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+        <Button
+                android:id="@+id/list_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorAccent"
+                android:text="@string/list_items"
+                android:onClick="@{listener::onClick}"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toTopOf="@+id/delete_btn"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"/>
 
         <Button
                 android:id="@+id/delete_btn"
