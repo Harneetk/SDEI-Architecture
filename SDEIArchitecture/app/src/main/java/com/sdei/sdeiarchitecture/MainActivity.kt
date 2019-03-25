@@ -15,7 +15,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
 
         val user = User()
         user.email = prefHelper["email", ""]!!
@@ -26,7 +26,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        when(v?.id) {
+        when (v?.id) {
             R.id.login_tv -> {
                 if (validInputs()) {
                     appHelper.hideKeyboard(this@MainActivity)

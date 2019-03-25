@@ -27,3 +27,7 @@ Iapp/src/main/java/com/sdei/sdeiarchitecture/adapter/AppRecyclerAdapter.kt,a\5\
 Mapp/src/main/java/com/sdei/sdeiarchitecture/adapter/AppRecyclerBaseAdapter.kt,4\b\4b775b6993589b977049d3d4c7f3eb5126f5ce0c
 A
 gradle.properties,2\a\2afbb999f001938c88fa43fc2ef52abf0f8213e4
+H
+app/google-services.json,f\d\fd8d34b142d02ec743a8efefefd2c097961666e9
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35

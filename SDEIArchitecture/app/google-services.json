@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "555075808109",
+    "firebase_url": "https://sdeiarchitecture.firebaseio.com",
+    "project_id": "sdeiarchitecture",
+    "storage_bucket": "sdeiarchitecture.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555075808109:android:399b16d8db06562c",
+        "android_client_info": {
+          "package_name": "com.sdei.sdeiarchitecture"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "555075808109-sv3rbbihns7n674k46cpkdjsj709jt7e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sdei.sdeiarchitecture",
+            "certificate_hash": "271bcaa63af9f5251c93062180f3b48cee83f349"
+          }
+        },
+        {
+          "client_id": "555075808109-76cv5e6sfdi39i4463a1toiogb4lkm8v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVQwhpAlEDsW4qHjE76DVnNga400JUupk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "555075808109-76cv5e6sfdi39i4463a1toiogb4lkm8v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
