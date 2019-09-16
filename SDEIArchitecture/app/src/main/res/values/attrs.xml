@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension"/>
+        <attr name="civ_border_color" format="color"/>
+        <attr name="civ_border_overlay" format="boolean"/>
+        <!-- {@deprecated Use civ_circlebackground_color instead.} -->
+        <attr name="civ_fill_color" format="color"/>
+        <attr name="civ_circle_background_color" format="color"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="BlinkingLoader">
+        <attr format="dimension" name="dot_width"/>
+        <attr format="dimension" name="dot_height"/>
+        <attr format="dimension" name="dot_margin"/>
+        <attr format="reference" name="dot_animator"/>
+        <attr format="reference" name="dot_animator_reverse"/>
+        <attr format="color" name="dot_blinkingColor"/>
+        <attr format="color" name="dot_neutralColor"/>
+        <attr format="reference" name="dot_background"/>
+        <attr format="integer" name="dot_num_dots"/>
+        <attr format="boolean" name="auto_start"/>
+        <attr format="enum" name="dot_orientation">
+            <!-- Defines an horizontal widget. -->
+            <enum name="horizontal" value="0"/>
+            <!-- Defines a vertical widget. -->
+            <enum name="vertical" value="1"/>
+        </attr>
+
+        <attr name="dot_gravity">
+            <!-- Push object to the top of its container, not changing its size. -->
+            <flag name="top" value="0x30"/>
+            <!-- Push object to the bottom of its container, not changing its size. -->
+            <flag name="bottom" value="0x50"/>
+            <!-- Push object to the left of its container, not changing its size. -->
+            <flag name="left" value="0x03"/>
+            <!-- Push object to the right of its container, not changing its size. -->
+            <flag name="right" value="0x05"/>
+            <!-- Place object in the vertical center of its container, not changing its size. -->
+            <flag name="center_vertical" value="0x10"/>
+            <!-- Grow the vertical size of the object if needed so it completely fills its container. -->
+            <flag name="fill_vertical" value="0x70"/>
+            <!-- Place object in the horizontal center of its container, not changing its size. -->
+            <flag name="center_horizontal" value="0x01"/>
+            <!-- Grow the horizontal size of the object if needed so it completely fills its container. -->
+            <flag name="fill_horizontal" value="0x07"/>
+            <!-- Place the object in the center of its container in both the vertical and horizontal axis, not changing its size. -->
+            <flag name="center" value="0x11"/>
+            <!-- Grow the horizontal and vertical size of the object if needed so it completely fills its container. -->
+            <flag name="fill" value="0x77"/>
+            <!-- Additional option that can be set to have the top and/or bottom edges of
+            the child clipped to its container's bounds.
+            The clip will be based on the vertical gravity: a top gravity will clip the bottom
+            edge, a bottom gravity will clip the top edge, and neither will clip both edges. -->
+            <flag name="clip_vertical" value="0x80"/>
+            <!-- Additional option that can be set to have the left and/or right edges of
+            the child clipped to its container's bounds.
+            The clip will be based on the horizontal gravity: a left gravity will clip the right
+            edge, a right gravity will clip the left edge, and neither will clip both edges. -->
+            <flag name="clip_horizontal" value="0x08"/>
+            <!-- Push object to the beginning of its container, not changing its size. -->
+            <flag name="start" value="0x00800003"/>
+            <!-- Push object to the end of its container, not changing its size. -->
+            <flag name="end" value="0x00800005"/>
+        </attr>
+
+    </declare-styleable>
+
+    <declare-styleable name="DuCircleView">
+        <attr format="dimension" name="du_radius"/>
+        <attr format="color" name="du_color"/>
+        <attr format="boolean" name="du_filled"/>
+    </declare-styleable>
+
+
+    <!--OTP View ...-->
+    <declare-styleable name="OtpViewTheme">
+        <attr format="reference" name="otpViewStyle"/>
+    </declare-styleable>
+    <declare-styleable name="OtpView">
+        <attr format="integer" name="itemCount"/>
+        <attr format="dimension" name="itemWidth"/>
+        <attr format="dimension" name="itemHeight"/>
+        <attr format="dimension" name="itemRadius"/>
+        <attr format="dimension" name="itemSpacing"/>
+        <attr format="dimension" name="lineWidth"/>
+        <attr format="reference|color" name="lineColor"/>
+        <attr format="enum" name="viewType">
+            <enum name="rectangle" value="0"/>
+            <enum name="line" value="1"/>
+            <enum name="none" value="2"/>
+        </attr>
+        <attr name="android:cursorVisible"/>
+        <attr format="dimension" name="cursorWidth"/>
+        <attr format="reference|color" name="cursorColor"/>
+        <attr name="android:itemBackground"/>
+        <attr format="boolean" name="hideLineWhenFilled"/>
+    </declare-styleable>
+
+    <declare-styleable name="ScrollingPagerIndicator">
+        <attr name="spi_dotColor" format="color" />
+        <attr name="spi_dotSelectedColor" format="color" />
+        <attr name="spi_dotSize" format="dimension" />
+        <attr name="spi_dotSelectedSize" format="dimension" />
+        <attr name="spi_dotSpacing" format="dimension" />
+        <attr name="spi_visibleDotCount" format="integer" />
+        <attr name="spi_visibleDotThreshold" format="integer" />
+        <attr name="spi_looped" format="boolean" />
+    </declare-styleable>
+
+
+    <declare-styleable name="LoadingView">
+        <attr name="lv_external_radius" format="dimension" />
+        <attr name="lv_internal_radius" format="dimension" />
+        <attr name="lv_duration" format="integer" />
+        <attr name="lv_start_color" format="color" />
+        <attr name="lv_end_color" format="color" />
+    </declare-styleable>
+
+    <color name="color_start">#00CFDB</color>
+    <color name="color_end">#0063A6</color>
+
+
+    <declare-styleable name="CircularProgressBar">
+        <attr name="cpb_hasShadow" format="boolean"/>
+        <attr name="cpb_progressColor" format="string"/>
+        <attr name="cpb_backgroundColor" format="string"/>
+        <attr name="cpb_title" format="string"/>
+        <attr name="cpb_titleColor" format="string"/>
+        <attr name="cpb_subtitle" format="string"/>
+        <attr name="cpb_subtitleColor" format="string"/>
+        <attr name="cpb_strokeWidth" format="integer"/>
+    </declare-styleable>
+</resources>

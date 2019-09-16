@@ -1,7 +1,7 @@
 package com.sdei.sdeiarchitecture.room
 
 import androidx.room.*
-import com.sdei.sdeiarchitecture.data.UserInfo
+import com.sdei.sdeiarchitecture.model.data.UserInfo
 
 @Dao
 interface UserInfoDAO {

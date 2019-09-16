@@ -2,7 +2,6 @@ package com.sdei.sdeiarchitecture.helper.dagger
 
 import android.app.Activity
 import android.content.Context
-import android.provider.Settings
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
@@ -10,9 +9,9 @@ import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
 import com.sdei.sdeiarchitecture.R
 import com.sdei.sdeiarchitecture.callback.SnackbarEventCallback
-import com.sdei.sdeiarchitecture.data.User
-import com.sdei.sdeiarchitecture.data.UserInfo
-import com.sdei.sdeiarchitecture.dialog.ProgressDialog
+import com.sdei.sdeiarchitecture.model.data.User
+import com.sdei.sdeiarchitecture.model.data.UserInfo
+import com.sdei.sdeiarchitecture.utils.custom.ProgressDialog
 import com.sdei.sdeiarchitecture.helper.dagger.scope.AppScope
 import com.sdei.sdeiarchitecture.room.AppDatabase
 import com.sdei.sdeiarchitecture.room.UserInfoDAO
@@ -115,8 +114,11 @@ class AppHelper {
 
     fun showProgressDialog(context: Context) {
         if (progressDialog == null) {
-            progressDialog = ProgressDialog(context, context.getString(R.string.please_wait))
-            progressDialog!!.window.setFlags(
+            progressDialog = ProgressDialog(
+                context,
+                context.getString(R.string.please_wait)
+            )
+            progressDialog?.window?.setFlags(
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
             )
@@ -127,7 +129,7 @@ class AppHelper {
     fun showProgressDialog(context: Context, message: String) {
         if (progressDialog == null) {
             progressDialog = ProgressDialog(context, message)
-            progressDialog!!.window.setFlags(
+            progressDialog?.window?.setFlags(
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
             )

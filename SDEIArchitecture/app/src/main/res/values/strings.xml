@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">SDEIArchitecture</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
@@ -39,5 +38,8 @@
         <item>@string/version</item>
     </string-array>
 
+
+     <string name="internet_connected">Good! Connected to Internet</string>
+     <string name="internet_not_connected">Sorry! Not connected to internet</string>
 
 </resources>

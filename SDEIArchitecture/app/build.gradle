@@ -6,23 +6,41 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: "io.fabric"
 
+
+project.ext {
+    appcompat = "28.0.0"
+    arch = "1.1.1"
+    retrofit = "2.5.0"
+    constraintLayout = "1.1.3"
+    picasso = "2.71828"
+    facebook = "4.39.0"
+    playService = "16.0.0"
+    dexter = "5.0.0"
+    responsive = "1.0.6"
+}
+
 android {
 
-    compileSdkVersion 28
+    compileSdkVersion 29
 
     defaultConfig {
-        applicationId "com.sdei.sdeiarchitecture"
-        minSdkVersion 19
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
-
+        applicationId "${application_id}"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode Integer.parseInt("${version_code}")
+        versionName "${version_name}"
+        multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
 
         buildConfigField("String", "APP_PREF", APP_PREF)
         buildConfigField("String", "BASE_URL", BASE_URL)
+        buildConfigField("String", "MEDIA_URL", MEDIA_URL)
 
         resValue("string", "db_name", DATA_BASE_NAME)
+
+        //Reference them in .provider_paths files.
+        resValue "string", "app_name", "${app_name}"
+        resValue "string", "app_version", "${version_name}"
     }
     buildTypes {
         release {
@@ -36,23 +54,28 @@ android {
     packagingOptions {
         exclude 'META-INF/LICENSE'
     }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
 }
 
 dependencies {
 
-    def room_version = '2.1.0-alpha05'
+    def room_version = '2.2.0-rc01'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0-alpha03'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha3'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'com.google.android.material:material:1.0.0'
 
     implementation 'com.google.dagger:dagger-android:2.15'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt 'com.google.dagger:dagger-compiler:2.15'
 
-    implementation 'com.android.volley:volley:1.1.1'
+   // implementation 'com.android.volley:volley:1.1.1'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.8.5'
     implementation 'com.fasterxml.jackson.core:jackson-core:2.8.5'
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.8.5'
@@ -61,8 +84,43 @@ dependencies {
     annotationProcessor "androidx.room:room-compiler:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
 
-    implementation 'com.google.firebase:firebase-core:16.0.8'
-    implementation 'com.crashlytics.sdk.android:crashlytics:2.9.9'
+
+    implementation 'com.google.firebase:firebase-core:17.2.0'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+
+    // Live Data ...
+    implementation "android.arch.lifecycle:runtime:$project.arch"
+    implementation "android.arch.lifecycle:extensions:$project.arch"
+    annotationProcessor "android.arch.lifecycle:compiler:$project.arch"
+
+
+    // Retrofit + GSON + Interceptor
+    implementation "com.squareup.retrofit2:retrofit:$project.retrofit"
+    implementation "com.squareup.retrofit2:converter-scalars:$project.retrofit"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$project.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$project.retrofit"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
+
+    implementation "com.facebook.android:facebook-android-sdk:$project.facebook"
+
+    // for marshmallow permissions ...
+    implementation "com.karumi:dexter:$project.dexter"
+
+    // Picasso image loader ...
+    implementation "com.squareup.picasso:picasso:$project.picasso"
+    implementation 'jp.wasabeef:picasso-transformations:2.2.1'
+
+    // for responsive screen dimensions ...
+    implementation "com.intuit.sdp:sdp-android:$project.responsive"
+    implementation "com.intuit.ssp:ssp-android:$project.responsive"
+
+
+    implementation 'com.androidadvance:topsnackbar:1.1.1'
+    implementation 'net.alhazmy13.MediaPicker:libary:2.4.4'
+    implementation 'com.yashoid:instacropper:1.0.6'
+
+    // Shimmer
+    implementation 'com.facebook.shimmer:shimmer:0.4.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

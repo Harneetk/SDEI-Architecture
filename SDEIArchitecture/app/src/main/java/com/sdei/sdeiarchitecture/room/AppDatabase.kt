@@ -5,7 +5,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import android.content.Context
 import com.sdei.sdeiarchitecture.R
-import com.sdei.sdeiarchitecture.data.UserInfo
+import com.sdei.sdeiarchitecture.model.data.UserInfo
 
 @Database(entities = arrayOf(UserInfo::class), version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {

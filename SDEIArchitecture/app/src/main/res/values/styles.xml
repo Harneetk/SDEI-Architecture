@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -21,6 +21,68 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <!--Custom Themes ...-->
+    <style name="AppMaterialTheme" parent="AppMaterialTheme.Base"/>
+
+    <style name="AppMaterialTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/divider</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="checkboxStyle">@style/MyCheckBoxStyle</item>
+    </style>
+
+
+    <style name="AppThemeNoToolbar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="checkboxStyle">@style/MyCheckBoxStyle</item>
+    </style>
+
+
+    <style name="AppThemeNoToolbar2" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="checkboxStyle">@style/MyCheckBoxStyle</item>
+    </style>
+
+    <!--Splash Screen Theme ...-->
+    <style name="SplashActivityTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/white</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>
+        <item name="android:windowTranslucentNavigation" tools:targetApi="kitkat">false</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent</item>
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="lollipop">true</item>
+    </style>
+
+
+    <style name="DialogAnimations">
+        <item name="android:windowEnterAnimation">@anim/slide_in_down</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_up</item>
+    </style>
+
+    <style name="MyCheckBoxStyle" parent="Base.Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:theme">@style/MyCheckboxTheme</item>
+    </style>
+
+    <style name="MyCheckboxTheme">
+        <item name="colorControlActivated">@color/colorPrimary</item>
     </style>
 
 </resources>

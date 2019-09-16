@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.sdei.sdeiarchitecture">
+        xmlns:tools="http://schemas.android.com/tools"
+        package="com.sdei.sdeiarchitecture">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
-            android:name=".AppApplication"
-            android:allowBackup="true"
+            android:largeHeap="true"
+            android:name=".utils.common.AppApplication"
+            android:allowBackup="false"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:allowClearUserData="true"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"
+            tools:replace="allowBackup">
 
-        <activity android:name=".MainActivity"
+        <activity android:name=".ui.main.MainActivity"
                   android:windowSoftInputMode="adjustResize|stateVisible|stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -24,10 +29,34 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".BaseActivity"
-        android:screenOrientation="portrait"/>
+        <activity android:name=".ui.next.NextActivity"/>
 
-        <activity android:name=".NextActivity"/>
+        <provider
+                android:name="androidx.core.content.FileProvider"
+                android:authorities="${applicationId}.provider"
+                android:exported="false"
+                android:grantUriPermissions="true">
+            <meta-data
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/provider_paths"/>
+        </provider>
+
+
+        <!-- Define your service, make sure to add the permission! -->
+        <service
+                android:name=".repository.networkCheck.NetworkSchedulerService"
+                android:exported="true"
+                android:permission="android.permission.BIND_JOB_SERVICE"/>
+
+
+        <!--<receiver
+                android:name=".repository.networkCheck.ConnectivityReceiver"
+                android:enabled="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"
+                        tools:ignore="BatteryLife" />
+            </intent-filter>
+        </receiver>-->
 
     </application>
 
