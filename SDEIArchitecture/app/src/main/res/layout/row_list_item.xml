@@ -13,7 +13,7 @@
 
         <variable
                 name="listener"
-                type="com.sdei.sdeiarchitecture.utils.common.recyclerViewBase.RecyclerCallback"/>
+                type="com.sdei.sdeiarchitecture.utils.common.recyclerviewbase.RecyclerCallback"/>
 
     </data>
 

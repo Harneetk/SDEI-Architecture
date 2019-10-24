@@ -17,6 +17,7 @@ project.ext {
     playService = "16.0.0"
     dexter = "5.0.0"
     responsive = "1.0.6"
+    liveData = "2.2.0-alpha05"
 }
 
 android {
@@ -89,9 +90,12 @@ dependencies {
     implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
 
     // Live Data ...
-    implementation "android.arch.lifecycle:runtime:$project.arch"
-    implementation "android.arch.lifecycle:extensions:$project.arch"
-    annotationProcessor "android.arch.lifecycle:compiler:$project.arch"
+    implementation "androidx.lifecycle:lifecycle-runtime:$project.liveData"
+    implementation "androidx.lifecycle:lifecycle-extensions:$project.liveData"
+    implementation "androidx.lifecycle:lifecycle-livedata:$project.liveData"
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$project.liveData"
+    implementation "androidx.lifecycle:lifecycle-compiler:$project.liveData"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$project.liveData"
 
 
     // Retrofit + GSON + Interceptor
@@ -99,12 +103,13 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-scalars:$project.retrofit"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$project.retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$project.retrofit"
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.3'
 
     implementation "com.facebook.android:facebook-android-sdk:$project.facebook"
 
     // for marshmallow permissions ...
     implementation "com.karumi:dexter:$project.dexter"
+    implementation 'com.afollestad:assent:2.3.1'
 
     // Picasso image loader ...
     implementation "com.squareup.picasso:picasso:$project.picasso"

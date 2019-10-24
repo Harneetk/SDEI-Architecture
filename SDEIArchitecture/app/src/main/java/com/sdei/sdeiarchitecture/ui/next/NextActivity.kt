@@ -1,29 +1,36 @@
 package com.sdei.sdeiarchitecture.ui.next
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import com.sdei.sdeiarchitecture.R
 import com.sdei.sdeiarchitecture.databinding.ActivityNextBinding
 import com.sdei.sdeiarchitecture.ui.home.HomeFragment
+import com.sdei.sdeiarchitecture.utils.base.BaseActivity
+import com.sdei.sdeiarchitecture.utils.base.BaseVM
 import com.sdei.sdeiarchitecture.utils.openFragment
-import com.sdei.sdeiarchitecture.utils.common.BaseActivity
 
 class NextActivity : BaseActivity() {
+    override val layoutId: Int
+        get() = R.layout.activity_next
+    override val mViewDataBinding: ViewDataBinding
+        get() = setUpBinding() as ActivityNextBinding
+    override var viewModel: ViewModel
+        get() = setUpVM(this@NextActivity, BaseVM())
+        set(value) {}
+    override val context: Context
+        get() = this
 
 
-
-    private lateinit var binding: ActivityNextBinding
+    private lateinit var viewBinding: ActivityNextBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(
-            this,
-            R.layout.activity_next
-        )
+        this.viewBinding = mViewDataBinding as ActivityNextBinding
         openHomePage()
     }
 
@@ -34,14 +41,14 @@ class NextActivity : BaseActivity() {
         val packageInfo = packageManager.getPackageInfo(packageName, 0)
         val version = getString(R.string.version) + ": " + packageInfo.versionName
 
-        val navHeaderView = binding.navView.getHeaderView(0)
+        val navHeaderView = viewBinding.navView.getHeaderView(0)
         navHeaderView.findViewById<TextView>(R.id.app_version_tv).text = version
 
-        binding.navView.setNavigationItemSelectedListener { menuItem ->
+        viewBinding.navView.setNavigationItemSelectedListener { menuItem ->
             // set item as selected to persist highlight
             menuItem.isChecked = true
             // close drawer when item is tapped
-            binding.drawerLayout.closeDrawers()
+            viewBinding.drawerLayout.closeDrawers()
             // Add code here to update the UI based on the item selected
             // For example, swap UI fragments here
             true
@@ -51,25 +58,22 @@ class NextActivity : BaseActivity() {
 
     }
 
-    override fun bindClick() {
 
-    }
+    override fun initListeners() {
 
-    override fun setUpVM(): ViewModel? {
-        return null
     }
 
     private fun configureToolbar() {
-        setSupportActionBar(binding.myToolbar)
-        supportActionBar!!.setDisplayShowTitleEnabled(false)
+        setSupportActionBar(viewBinding.myToolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
         setupDrawerToggle()
     }
 
     private fun setupDrawerToggle() {
         val mDrawerToggle = ActionBarDrawerToggle(
             this,
-            binding.drawerLayout,
-            binding.myToolbar,
+            viewBinding.drawerLayout,
+            viewBinding.myToolbar,
             0,
             0
         )
@@ -79,18 +83,18 @@ class NextActivity : BaseActivity() {
 
     private fun setTabItems() {
 
-        binding.tabsTl.removeAllTabs()
+        viewBinding.tabsTl.removeAllTabs()
         val tabItemsDrawable = resources.obtainTypedArray(R.array.home_tab_items_drawable)
         val tabItemsName = resources.obtainTypedArray(R.array.home_tab_items_name)
         for (i in 0 until tabItemsDrawable.length()) {
             // Add Tab
-            val tab = binding.tabsTl.newTab()
+            val tab = viewBinding.tabsTl.newTab()
             tab.setCustomView(R.layout.tab)
             tab.text = tabItemsName.getText(i)
             val id = tabItemsDrawable.getResourceId(i, -1)
             val drawable = AppCompatResources.getDrawable(this, id)
             tab.icon = drawable
-            binding.tabsTl.addTab(tab)
+            viewBinding.tabsTl.addTab(tab)
         }
         tabItemsName.recycle()
         tabItemsDrawable.recycle()

@@ -10,7 +10,7 @@
 
     <application
             android:largeHeap="true"
-            android:name=".utils.common.AppApplication"
+            android:name=".utils.base.AppApplication"
             android:allowBackup="false"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
@@ -20,7 +20,7 @@
             android:theme="@style/AppTheme"
             tools:replace="allowBackup">
 
-        <activity android:name=".ui.main.MainActivity"
+        <activity android:name=".ui.test.TestActivity"
                   android:windowSoftInputMode="adjustResize|stateVisible|stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -29,7 +29,9 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".ui.main.MainActivity"/>
         <activity android:name=".ui.next.NextActivity"/>
+        <activity android:name=".ui.test.TestActivity2" />
 
         <provider
                 android:name="androidx.core.content.FileProvider"
@@ -44,7 +46,7 @@
 
         <!-- Define your service, make sure to add the permission! -->
         <service
-                android:name=".repository.networkCheck.NetworkSchedulerService"
+                android:name=".repository.networkcheck.NetworkSchedulerService"
                 android:exported="true"
                 android:permission="android.permission.BIND_JOB_SERVICE"/>
 

@@ -12,9 +12,9 @@
 
         <variable
                 name="items"
-                type="com.sdei.sdeiarchitecture.utils.common.recyclerViewBase.RecyclerBindingList" />
+                type="com.sdei.sdeiarchitecture.utils.common.recyclerviewbase.RecyclerBindingList" />
 
-        <variable name="callback" type="com.sdei.sdeiarchitecture.utils.common.recyclerViewBase.RecyclerCallback"/>
+        <variable name="callback" type="com.sdei.sdeiarchitecture.utils.common.recyclerviewbase.RecyclerCallback"/>
 
     </data>
 

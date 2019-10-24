@@ -2,22 +2,29 @@ package com.sdei.sdeiarchitecture.ui.home
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
-import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
-import com.sdei.sdeiarchitecture.*
+import com.sdei.sdeiarchitecture.R
 import com.sdei.sdeiarchitecture.databinding.FragmentHomeBinding
+import com.sdei.sdeiarchitecture.repository.dagger.AppHelper
 import com.sdei.sdeiarchitecture.ui.other.RecyclerItemsPage
-import com.sdei.sdeiarchitecture.helper.dagger.AppHelper
+import com.sdei.sdeiarchitecture.utils.base.BaseFragment
+import com.sdei.sdeiarchitecture.utils.base.BaseVM
 import com.sdei.sdeiarchitecture.utils.openFragment
-import com.sdei.sdeiarchitecture.utils.common.BaseFragment
 
 class HomeFragment : BaseFragment(), View.OnClickListener {
+    override val layoutId: Int
+        get() = R.layout.fragment_home
+    override var binding: ViewDataBinding
+        get() = setUpBinding() as FragmentHomeBinding
+        set(value) {}
+    override var viewModel: ViewModel
+        get() = setUpVM(this@HomeFragment, BaseVM())
+        set(value) {}
 
-    private lateinit var binding: FragmentHomeBinding
+
+    private lateinit var viewBinding: FragmentHomeBinding
 
     private lateinit var appHelper: AppHelper
 
@@ -28,26 +35,18 @@ class HomeFragment : BaseFragment(), View.OnClickListener {
         this.activityContext = context
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
-        binding.listener = this
-        return binding.root
-    }
-
-    override fun setUpVM(): ViewModel? {
-        return null
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewBinding = binding as FragmentHomeBinding
+        viewBinding.listener = this
     }
 
     override fun bindData() {
 
     }
 
-    override fun bindClick() {
-
+    override fun initListeners() {
+        // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 
@@ -64,17 +63,17 @@ class HomeFragment : BaseFragment(), View.OnClickListener {
 
             }
             R.id.retrieve_db -> {
-                val userInfo = appHelper.getUserInfo(context!!)
+                /*val userInfo = appHelper.getUserInfo(context!!)
                 if (userInfo == null) {
                     Toast.makeText(context, getString(R.string.no_record_found), Toast.LENGTH_SHORT)
                         .show()
                 } else {
                     Toast.makeText(context, userInfo.name, Toast.LENGTH_SHORT).show()
-                }
+                }*/
             }
             R.id.delete_btn -> {
-                val userInfo = appHelper.getUserInfo(context!!)
-                appHelper.deleteUserInfo(context!!, userInfo)
+//                val userInfo = appHelper.getUserInfo(context!!)
+//                appHelper.deleteUserInfo(context!!, userInfo)
             }
         }
 

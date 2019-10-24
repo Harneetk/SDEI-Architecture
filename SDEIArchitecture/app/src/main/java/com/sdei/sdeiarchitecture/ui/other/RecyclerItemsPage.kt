@@ -1,61 +1,57 @@
 package com.sdei.sdeiarchitecture.ui.other
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.sdei.sdeiarchitecture.R
 import com.sdei.sdeiarchitecture.model.data.Country
 import com.sdei.sdeiarchitecture.databinding.FragmentRecyclerItemsBinding
+import com.sdei.sdeiarchitecture.utils.base.BaseFragment
+import com.sdei.sdeiarchitecture.utils.base.BaseVM
+import com.sdei.sdeiarchitecture.utils.common.recyclerviewbase.RecyclerBindingList
+import com.sdei.sdeiarchitecture.utils.common.recyclerviewbase.RecyclerCallback
 import com.sdei.sdeiarchitecture.utils.popBackFragment
-import com.sdei.sdeiarchitecture.utils.common.BaseFragment
-import com.sdei.sdeiarchitecture.utils.common.recyclerViewBase.RecyclerBindingList
-import com.sdei.sdeiarchitecture.utils.common.recyclerViewBase.RecyclerCallback
 import java.io.IOException
 
 class RecyclerItemsPage : BaseFragment(), View.OnClickListener, RecyclerCallback {
 
+    override val layoutId: Int
+        get() = R.layout.fragment_recycler_items
+    override var binding: ViewDataBinding
+        get() = setUpBinding() as FragmentRecyclerItemsBinding
+        set(value) {}
+    override var viewModel: ViewModel
+        get() = setUpVM(this@RecyclerItemsPage, BaseVM())
+        set(value) {}
 
-    private lateinit var binding: FragmentRecyclerItemsBinding
+
     private var bindList: RecyclerBindingList<Country> = RecyclerBindingList()
     private val countyList = ArrayList<Country>()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = DataBindingUtil.inflate(
-            inflater,
-            R.layout.fragment_recycler_items,
-            container,
-            false
-        )
 
-        return binding.root
-    }
+    private lateinit var viewBinding: FragmentRecyclerItemsBinding
 
-    override fun setUpVM(): ViewModel? {
-        return null
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        this.viewBinding = binding as FragmentRecyclerItemsBinding
     }
 
     override fun bindData() {
-        binding.clickListener = this
-        binding.callback = this
+        viewBinding.clickListener = this
+        viewBinding.callback = this
         countyList.addAll(getStaticDataItems())
         bindList.itemsList = countyList
-        binding.items = bindList
+        viewBinding.items = bindList
     }
 
-    override fun bindClick() {
 
+    override fun initListeners() {
+        // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-
 
     private fun getStaticDataItems(): ArrayList<Country> {
         val json: String? = loadJSONFromAsset()

@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.sdei.sdeiarchitecture.R
-import com.sdei.sdeiarchitecture.helper.dagger.AppHelper
+import com.sdei.sdeiarchitecture.repository.dagger.AppHelper
 import java.net.SocketTimeoutException
 
 fun Snackbar.withColor(@ColorInt colorInt: Int): Snackbar {
