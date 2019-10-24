@@ -1,4 +1,5 @@
 # smartData-Architecture
+Version 1.1 :
 
 This architecture covers following items: (Kotlin Structure)
 
@@ -11,5 +12,7 @@ This architecture covers following items: (Kotlin Structure)
 7. Retrofit Implementation for API call
 8. Custom views added
 9. RecyclerView Adapter implementation with DataBinding
+10. Change in way to define and implement viewmodel and databinding in Activity or fragment.
+11. Marshmellow permission library changes
 
 These are the main functionality I have implemented in this project. Please let me know if I have to implement anything else in this architecture.
