@@ -23,7 +23,7 @@ enum ButtonsState {
     RIGHT_VISIBLE
 }
 
-public class SwipeController extends ItemTouchHelper.Callback {
+public class SwipeController extends Callback {
     private boolean swipeBack = false;
 
     private ButtonsState buttonShowedState = ButtonsState.GONE;

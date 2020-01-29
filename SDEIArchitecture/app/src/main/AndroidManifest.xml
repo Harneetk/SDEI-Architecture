@@ -10,7 +10,7 @@
 
     <application
             android:largeHeap="true"
-            android:name=".utils.base.AppApplication"
+            android:name=".utils.base.BaseApplication"
             android:allowBackup="false"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
@@ -20,45 +20,40 @@
             android:theme="@style/AppTheme"
             tools:replace="allowBackup">
 
-        <activity android:name=".ui.test.TestActivity"
-                  android:windowSoftInputMode="adjustResize|stateVisible|stateAlwaysHidden">
+        <activity android:name=".ui.authentication.AuthenticationActivity">
+
+            <!--  <intent-filter>
+                  <action android:name="android.intent.action.MAIN" />
+                  <action android:name="android.intent.action.VIEW" />
+
+                  <category android:name="android.intent.category.LAUNCHER" />
+              </intent-filter>-->
+        </activity>
+        <activity android:name=".ui.home.HomeActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.main.MainActivity"/>
-        <activity android:name=".ui.next.NextActivity"/>
-        <activity android:name=".ui.test.TestActivity2" />
-
         <provider
-                android:name="androidx.core.content.FileProvider"
-                android:authorities="${applicationId}.provider"
-                android:exported="false"
-                android:grantUriPermissions="true">
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
             <meta-data
-                    android:name="android.support.FILE_PROVIDER_PATHS"
-                    android:resource="@xml/provider_paths"/>
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
         </provider>
 
 
         <!-- Define your service, make sure to add the permission! -->
         <service
-                android:name=".repository.networkcheck.NetworkSchedulerService"
-                android:exported="true"
-                android:permission="android.permission.BIND_JOB_SERVICE"/>
-
-
-        <!--<receiver
-                android:name=".repository.networkCheck.ConnectivityReceiver"
-                android:enabled="true">
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"
-                        tools:ignore="BatteryLife" />
-            </intent-filter>
-        </receiver>-->
+            android:name=".repository.networkcheck.NetworkSchedulerService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
     </application>
 

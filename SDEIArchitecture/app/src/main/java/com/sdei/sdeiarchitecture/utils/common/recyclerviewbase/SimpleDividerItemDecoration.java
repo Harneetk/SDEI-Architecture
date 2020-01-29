@@ -11,10 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.sdei.sdeiarchitecture.R;
 
 
-public class SimpleDividerItemDecoration extends RecyclerView.ItemDecoration  {
+public class SimpleDividerItemDecoration extends RecyclerView.ItemDecoration {
     private Drawable mDivider;
 
-    public SimpleDividerItemDecoration(Context context) {
+    SimpleDividerItemDecoration(Context context) {
         mDivider = ContextCompat.getDrawable(context, R.drawable.line_divider);
     }
 

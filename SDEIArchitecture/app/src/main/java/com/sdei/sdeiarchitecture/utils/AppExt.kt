@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.sdei.sdeiarchitecture.R
-import com.sdei.sdeiarchitecture.repository.dagger.AppHelper
 import java.net.SocketTimeoutException
 
 fun Snackbar.withColor(@ColorInt colorInt: Int): Snackbar {
@@ -89,6 +88,7 @@ fun Fragment.popBackFragment(fragment: Fragment) {
     }
 }
 
+/*
 fun AppCompatActivity.handleApiError(
     t: Throwable?,
     coordinatorLayout: ViewGroup,
@@ -107,4 +107,4 @@ fun AppCompatActivity.handleApiError(
             appHelper.showSnackBarToast(errorMessage, coordinatorLayout)
         }
     }
-}
+}*/

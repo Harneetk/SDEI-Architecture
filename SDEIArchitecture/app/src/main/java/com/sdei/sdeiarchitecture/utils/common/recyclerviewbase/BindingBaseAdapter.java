@@ -1,6 +1,8 @@
 package com.sdei.sdeiarchitecture.utils.common.recyclerviewbase;
 
 import android.content.Context;
+import android.transition.Slide;
+import android.transition.TransitionManager;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,36 +11,11 @@ import android.view.ViewGroup;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.transition.Slide;
-import androidx.transition.TransitionManager;
 
 import com.sdei.sdeiarchitecture.BR;
 
 
-abstract class BindingBaseAdapter extends RecyclerView.Adapter<BindingBaseAdapter.MyViewHolder> {
-
-    class MyViewHolder extends RecyclerView.ViewHolder {
-
-        private ViewDataBinding binding;
-        private RecyclerCallback callback;
-
-        MyViewHolder(ViewDataBinding binding) {
-            super(binding.getRoot());
-            this.binding = binding;
-            this.callback = getRecyclerCallback();
-        }
-
-        void bind(int position, Object obj, Object vm, Object subViewAdapter, Context mContext) {
-            binding.setVariable(BR.model, obj);
-            binding.setVariable(BR.callback, callback);
-            binding.setVariable(BR.position, position);
-            // binding.setVariable(BR.viewModel, vm);
-            //  binding.setVariable(BR.subViewAdapter, subViewAdapter);
-            //  binding.setVariable(BR.context, mContext);
-            binding.executePendingBindings();
-        }
-
-    }
+abstract class BindingBaseAdapter extends RecyclerView.Adapter<BindingBaseAdapter.BaseViewHolder> {
 
     /**
      * create a new RecyclerView.ViewHolder and initializes
@@ -48,13 +25,13 @@ abstract class BindingBaseAdapter extends RecyclerView.Adapter<BindingBaseAdapte
      * @param viewType
      * @return the holder
      */
-    public MyViewHolder onCreateViewHolder(ViewGroup parent,
-                                           int viewType) {
+    public BaseViewHolder onCreateViewHolder(ViewGroup parent,
+                                             int viewType) {
         LayoutInflater layoutInflater =
                 LayoutInflater.from(parent.getContext());
         ViewDataBinding binding = DataBindingUtil.inflate(
                 layoutInflater, viewType, parent, false);
-        return new MyViewHolder(binding);
+        return new BaseViewHolder(binding);
     }
 
     /**
@@ -64,7 +41,7 @@ abstract class BindingBaseAdapter extends RecyclerView.Adapter<BindingBaseAdapte
      * @param position position on which holder to update
      */
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(BaseViewHolder holder, int position) {
         Object obj = getObjForPosition(position);
         Object vm = getViewModel();
         Object subViewAdapter = getSubViewAdapter();
@@ -83,7 +60,6 @@ abstract class BindingBaseAdapter extends RecyclerView.Adapter<BindingBaseAdapte
         slide.setSlideEdge(Gravity.RIGHT);
         TransitionManager.beginDelayedTransition((ViewGroup) view, slide);
     }
-
 
     /**
      * @param position item position
@@ -105,4 +81,27 @@ abstract class BindingBaseAdapter extends RecyclerView.Adapter<BindingBaseAdapte
     protected abstract Object getSubViewAdapter();
 
     protected abstract Context getMyContext();
+
+    class BaseViewHolder extends RecyclerView.ViewHolder {
+
+        private ViewDataBinding binding;
+        private RecyclerCallback callback;
+
+        BaseViewHolder(ViewDataBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
+            this.callback = getRecyclerCallback();
+        }
+
+        void bind(int position, Object obj, Object vm, Object subViewAdapter, Context mContext) {
+            binding.setVariable(BR.model, obj);
+            binding.setVariable(BR.callback, callback);
+            binding.setVariable(BR.position, position);
+//            binding.setVariable(BR.viewModel, vm);/**/
+//            binding.setVariable(BR.subViewAdapter, subViewAdapter);/**/
+//            binding.setVariable(BR.context, mContext);/**/
+            binding.executePendingBindings();
+        }
+
+    }
 }

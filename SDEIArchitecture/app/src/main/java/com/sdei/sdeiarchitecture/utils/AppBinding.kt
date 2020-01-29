@@ -1,6 +1,7 @@
 package com.sdei.sdeiarchitecture.utils
 
 import android.Manifest.permission.*
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.graphics.Bitmap
@@ -8,6 +9,7 @@ import android.media.ThumbnailUtils
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.afollestad.assent.Permission
 import com.afollestad.assent.askForPermissions
@@ -141,17 +143,28 @@ fun initMultiPermissions(activity: Activity, callback: PermissionCallback) {
         }).check()
 }
 
-fun checkMyPermission(baseActivity: BaseActivity) {
+fun checkMyPermission(baseActivity: BaseActivity<*, *>) {
     baseActivity.askForPermissions(Permission.WRITE_EXTERNAL_STORAGE, Permission.CAMERA) { result ->
         // Check the result, see the Using Results section
     }
 }
 
-fun runWithPermissions(baseActivity: BaseActivity) {
-    baseActivity.runWithPermissions(Permission.WRITE_EXTERNAL_STORAGE, Permission.CAMERA) { result ->
+fun runWithPermissions(baseActivity: BaseActivity<*, *>) {
+    baseActivity.runWithPermissions(
+        Permission.WRITE_EXTERNAL_STORAGE,
+        Permission.CAMERA
+    ) { result ->
         // Do something
     }
 }
+
+@SuppressLint("SetTextI18n")
+@BindingAdapter("concatData")
+fun concatData(view: TextView, concatData: String) {
+    Log.e("sadfads","asasdfasdfadsfasd")
+    view.text = "Item $concatData"
+}
+
 
 
 

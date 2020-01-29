@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.sdei.sdeiarchitecture.R" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.sdei.sdeiarchitecture.ui.authentication.login.LoginVM" />
+
+        <variable
+            name="a"
+            type="String" />
+        <variable
+            name="b"
+            type="String" />
+
+        <variable
+            name="c"
+            type="String" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:paddingTop="@dimen/_15sdp"
+        android:paddingBottom="@dimen/_15sdp"
+        tools:context=".ui.main.MainActivity">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email_til"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:hint="@string/email"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.35">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:text="@={vm.emailObservable}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password_til"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:hint="@string/password"
+            app:layout_constraintEnd_toEndOf="@+id/email_til"
+            app:layout_constraintStart_toStartOf="@+id/email_til"
+            app:layout_constraintTop_toBottomOf="@+id/email_til">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:text="@={vm.passwordObservable}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.gigamole.library.ShadowLayout
+            android:id="@+id/btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password_til"
+            app:sl_shadow_angle="90"
+            app:sl_shadow_color="@color/divider"
+            app:sl_shadow_distance="5dp"
+            app:sl_shadow_radius="5dp"
+            app:sl_shadowed="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/shape_rectangle_round_corner">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/login_tv"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="@android:color/transparent"
+                    android:onClick="@{() -> vm.doLoginProcess()}"
+                    android:text="Login"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/_14ssp" />
+
+
+                <com.wang.avi.AVLoadingIndicatorView
+                    android:id="@+id/avi"
+                    style="@style/AVLoadingIndicatorView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:visibility="@{vm.progressObservable.booleanValue()? View.VISIBLE: View.INVISIBLE, default=visible}"
+                    app:indicatorColor="@color/white"
+                    app:indicatorName="LineScalePartyIndicator" />
+
+            </RelativeLayout>
+
+        </com.gigamole.library.ShadowLayout>
+
+        <!--        android:visibility="@{showProgress ? View.VISIBLE: View.INVISIBLE, default=visible}"-->
+        <!--<androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/login_tv"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:onClick="@{vm.doLoginProcess()}"
+            android:text="@string/login"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@+id/password_til" />-->
+
+
+        <com.sdei.sdeiarchitecture.utils.custom.blinkingloader.BlinkingLoader
+            android:id="@+id/blinkingLoader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:visibility="gone"
+            app:auto_start="true"
+            app:dot_blinkingColor="@color/colorPrimary"
+            app:dot_neutralColor="@color/divider"
+            app:dot_num_dots="4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+
+
+
+            <!--        <androidx.recyclerview.widget.RecyclerView-->
+            <!--            android:id="@+id/recyclerView"-->
+            <!--            itemDecor="@{true}"-->
+            <!--            android:layout_width="0dp"-->
+            <!--            android:layout_height="0dp"-->
+            <!--            app:layout="@{R.layout.row_home_list}"-->
+            <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--            app:layout_constraintStart_toStartOf="parent"-->
+            <!--            app:layout_constraintTop_toTopOf="parent"-->
+            <!--            app:recyclerLinearAdapter="@{list}"-->
+            <!--            app:onItemClickListener="@{click}"/>-->
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{a}" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{b}" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{c}" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

@@ -9,12 +9,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 
-abstract class BaseFragment : Fragment() {
+abstract class BaseFragment<dataBinding : ViewDataBinding, viewModel : ViewModel> : Fragment() {
     // since its going to be common for all the activities
     private var mViewModel: ViewModel? = null
-    lateinit var mContext: BaseActivity
+    lateinit var baseActivity: BaseActivity<dataBinding, viewModel>
 
     /**
      * @return toolbar resource id
@@ -27,15 +27,15 @@ abstract class BaseFragment : Fragment() {
      *
      * @return view model instance
      */
-    abstract var viewModel: ViewModel
+    abstract var viewModel: viewModel
 
-    abstract var binding: ViewDataBinding
+    abstract var binding: dataBinding
 
     lateinit var mViewDataBinding: ViewDataBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mContext = activity as BaseActivity
+        baseActivity = activity as BaseActivity<dataBinding, viewModel>
     }
 
     override fun onCreateView(
@@ -48,10 +48,6 @@ abstract class BaseFragment : Fragment() {
         return mViewDataBinding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-    }
 
     override fun onStart() {
         super.onStart()
@@ -63,8 +59,8 @@ abstract class BaseFragment : Fragment() {
 
     protected abstract fun initListeners()
 
-    fun setUpBinding(): ViewDataBinding {
-        return mViewDataBinding
+    fun setUpBinding(): dataBinding {
+        return mViewDataBinding as dataBinding
     }
 
     /**
@@ -72,11 +68,28 @@ abstract class BaseFragment : Fragment() {
      * if no ViewModel Available then use BaseModel ...
      * You can also send parameters in constructor ...
      */
-    fun setUpVM(fragment: Fragment, obj: ViewModel): ViewModel {
+    fun setUpVM(fragment: Fragment, obj: ViewModel): viewModel {
         val provider = AppVMProvider()
         provider.createParams(obj)
-        return ViewModelProviders.of(
+        return ViewModelProvider(
             fragment, provider
-        ).get(obj::class.java)
+        ).get(obj::class.java) as viewModel
+    }
+
+    fun showSnackBar(view: View, message: String, isError: Boolean) {
+        baseActivity.showSnackBar(view, message, isError)
+    }
+
+    fun openFragmentReplace(id: Int, fragment: Fragment, tag: String, addToBack: Boolean) {
+        baseActivity.openFragmentReplace(id, fragment, tag, addToBack)
+    }
+
+    fun openFragmentReplaceNoAnim(id: Int, fragment: Fragment, tag: String, addToBack: Boolean) {
+        baseActivity.openFragmentReplaceNoAnim(id, fragment, tag, addToBack)
+    }
+
+    fun onBackPressed() {
+        baseActivity.onBackPressed()
+//        mContext.supportFragmentManager.popBackStack()
     }
 }

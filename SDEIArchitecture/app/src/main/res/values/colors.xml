@@ -7,4 +7,5 @@
 
     <color name="black_transparent">#33000000</color>
     <color name="divider">#BDBDBD</color>
+    <color name="black">#000000</color>
 </resources>

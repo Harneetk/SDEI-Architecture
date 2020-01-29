@@ -39,7 +39,14 @@
     </string-array>
 
 
-     <string name="internet_connected">Good! Connected to Internet</string>
-     <string name="internet_not_connected">Sorry! Not connected to internet</string>
+    <string name="internet_connected">Good! Connected to Internet</string>
+    <string name="internet_not_connected">Sorry! Not connected to internet</string>
+    <string name="menu">Menu</string>
+    <string name="hello_user">Hello User</string>
+
+
+    <string-array name="menu_array">
+        <item>Home</item>
+    </string-array>
 
 </resources>

@@ -3,7 +3,6 @@ package com.sdei.sdeiarchitecture.utils.common.recyclerviewbase;
 
 import android.util.Log;
 
-
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
@@ -23,7 +22,7 @@ public class RecyclerBindingList<T> extends BaseObservable implements Serializab
 
     public void setAdapter(MyRecyclerAdapter adapter) {
         this.adapter = adapter;
-        notifyPropertyChanged(com.sdei.sdeiarchitecture.BR.adapter);
+        //notifyPropertyChanged(BR.adapter);
     }
 
     @Bindable
@@ -33,8 +32,14 @@ public class RecyclerBindingList<T> extends BaseObservable implements Serializab
 
     public void setItemsList(ArrayList<T> itemsList) {
         this.itemsList = itemsList;
-        Log.e("RecyclerBindingList",""+itemsList.size());
-        //notifyPropertyChanged(BR.itemList);
+        Log.e("RecyclerBindingList", "" + itemsList.size());
+        //notifyPropertyChanged(BR.itemsList);
+    }
+
+    public void notifyDataChange() {
+        if (adapter != null) {
+            adapter.notifyDataSetChanged();
+        }
     }
 
 }
